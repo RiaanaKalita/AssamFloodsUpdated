@@ -1,0 +1,62 @@
+<html>
+  <body>
+    <script>
+(function(){
+var map = L.map('leafletMap', { scrollWheelZoom:false, worldCopyJump:true }).setView([18, 20], 2); 
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+    attribution:'&copy; OpenStreetMap contributors', 
+    maxZoom:14 
+}).addTo(map); 
+
+var mapHint = document.getElementById('mapHint'); 
+var mapEl = document.getElementById('leafletMap'); 
+
+mapEl.addEventListener('mouseenter', function(){ map.scrollWheelZoom.enable(); mapHint.style.opacity='0'; }); 
+mapEl.addEventListener('mouseleave', function(){ map.scrollWheelZoom.disable(); mapHint.style.opacity='1'; }); 
+mapEl.addEventListener('click', function(){ map.scrollWheelZoom.enable(); mapHint.style.opacity='0'; }); 
+
+// historical reference marker (2024 Assam floods) — always shown, clearly labeled, not live 
+L.circleMarker([26.14, 91.73], { radius:9, color:'#EAF4F4', weight:1.5, dashArray:'3,3', fillColor:'#0B2E33', fillOpacity:0.6 }) 
+.addTo(map).bindPopup('<b>2024 Assam floods (historical reference)</b><br>~2.45 million people affected across 30 districts. Not a live data point.'); 
+
+var floodLayer = L.layerGroup().addTo(map); 
+var statusText = document.getElementById('mapStatusText'); 
+var loaded = { floods:null }; 
+
+function setStatus(){ 
+    var now = new Date().toLocaleTimeString(); 
+    if(loaded.floods === 'error'){ 
+        statusText.innerHTML = '<span class="dotlive"></span>Live feed unreachable — showing historical reference only. Try opening this file in a regular browser tab.'; 
+        return; 
+    } 
+    var fMsg = loaded.floods === null ? 'loading flood events…' : (loaded.floods > 0 ? loaded.floods + ' active NASA flood event(s) worldwide' : 'no active NASA-tracked floods right now'); 
+    statusText.innerHTML = '<span class="dotlive"></span>Live · updated ' + now + ' — ' + fMsg + ' · refreshes automatically'; 
+} 
+
+function fetchFloods(){ 
+    fetch('https://nasa.gov') 
+    .then(function(r){ return r.json(); }) 
+    .then(function(data){ 
+        floodLayer.clearLayers(); 
+        var events = data.events || []; 
+        events.forEach(function(ev){ 
+            var geo = ev.geometry && ev.geometry[ev.geometry.length-1]; 
+            if(!geo) return; 
+            L.circleMarker([geo.coordinates[1], geo.coordinates[0]], { radius:8, color:'#3F8FD1', weight:1.4, fillColor:'#3F8FD1', fillOpacity:0.55 }) 
+            .addTo(floodLayer) 
+            .bindPopup('<b>' + ev.title + '</b><br>NASA EONET · open flood event'); 
+        }); 
+        loaded.floods = events.length; 
+        setStatus(); 
+    }).catch(function(){ 
+        loaded.floods = 'error'; 
+        setStatus(); 
+    }); 
+} 
+
+fetchFloods(); 
+setInterval(fetchFloods, 10*60*1000); // NASA EONET updates less frequently
+})(); 
+</script>
+    </body>
+</html>
