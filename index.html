@@ -1,4 +1,5 @@
 
+<
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,33 +7,306 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Tide Turn | Flood Awareness in Assam</title>
-  <meta name="description" content="Learn about flood awareness, preparedness and safety in Assam.">
+  <meta name="description" content="A clear guide to flood awareness, preparedness and safety in Assam.">
 
-  <!-- Import website fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Varela+Round&display=swap" rel="stylesheet">
 
   <style>
-    /* STEP 2: Website CSS will go here */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    :root {
+      --navy: #0E4C92;
+      --sky: #89CFEF;
+      --green: #DDF2E5;
+      --ink: #17334D;
+      --white: #FFFFFF;
+      --pale: #F3F9FC;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Varela Round', sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Akaya Kanadaka', cursive;
+      line-height: 1.2;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      padding: 18px 6%;
+      background: var(--white);
+      border-bottom: 1px solid #E1EAF0;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 32px;
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #36A982;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 24px;
+    }
+
+    nav a:hover {
+      background: #E7F4FB;
+      color: var(--navy);
+    }
+
+    main section {
+      padding: 64px 8%;
+      scroll-margin-top: 20px;
+    }
+
+    .intro {
+      background: var(--pale);
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .intro h1 {
+      color: var(--navy);
+      font-size: clamp(38px, 6vw, 60px);
+      margin-bottom: 18px;
+    }
+
+    .intro p {
+      max-width: 650px;
+      margin: 0 auto 20px;
+    }
+
+    .section-heading {
+      color: var(--navy);
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+
+    .section-text {
+      max-width: 700px;
+    }
+
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .feature-card {
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid #DFEAF0;
+      border-radius: 18px;
+    }
+
+    .feature-card h3 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card a {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    #information {
+      background: var(--white);
+    }
+
+    #safety {
+      background: var(--pale);
+    }
+
+    #emergency {
+      background: var(--green);
+    }
+
+    .placeholder {
+      margin-top: 22px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 14px;
+      border: 1px solid #DCE9E7;
+    }
+
+    footer {
+      padding: 28px 6%;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .feature-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      main section {
+        padding: 42px 6%;
+      }
+
+      .feature-cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        gap: 4px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <header>
+    <div class="navbar">
+      <a href="#home" class="logo">Tide Turn<span>.</span></a>
 
-  <!-- STEP 3: Navigation bar will go here -->
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#information">Information</a>
+        <a href="#safety">Safety</a>
+        <a href="#emergency">Emergency Help</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section id="home" class="intro">
+      <p class="eyebrow">FLOOD AWARENESS • ASSAM, INDIA</p>
+      <h1>Knowledge today.<br>Safety tomorrow.</h1>
+      <p>
+        Understand floods, prepare for emergencies and
+        help build safer communities across Assam.
+      </p>
+      <p><strong>Be aware. Be prepared. Be safe.</strong></p>
 
-  <!-- STEP 4: Homepage will go here -->
+      <div class="feature-cards">
+        <article class="feature-card">
+          <h3>Flood Safety</h3>
+          <p>Learn how to prepare and protect yourself during floods.</p>
+          <a href="#safety">Explore safety →</a>
+        </article>
 
+        <article class="feature-card">
+          <h3>Information</h3>
+          <p>Discover useful facts, news and flood awareness resources.</p>
+          <a href="#information">Learn more →</a>
+        </article>
 
-  <!-- Later: Information, Safety and Emergency sections -->
+        <article class="feature-card">
+          <h3>Flood Tracker</h3>
+          <p>Find the flood monitoring tool in the safety section.</p>
+          <a href="#safety">Explore the tracker →</a>
+        </article>
 
+        <article class="feature-card">
+          <h3>Emergency Help</h3>
+          <p>Find important contacts to keep accessible in an emergency.</p>
+          <a href="#emergency">View contacts →</a>
+        </article>
+      </div>
+    </section>
 
-  <script>
-    // JavaScript will only be added when necessary.
-  </script>
+    <section id="information">
+      <p class="eyebrow">LEARN • UNDERSTAND • PREPARE</p>
+      <h2 class="section-heading">Understand the Floods</h2>
+      <p class="section-text">
+        Explore flood facts, clear statistics, news updates
+        and a quiz to test your knowledge.
+      </p>
+      <div class="placeholder">
+        Information, graphs, news and quiz will be built here.
+      </div>
+    </section>
 
+    <section id="safety">
+      <p class="eyebrow">YOUR SAFETY MATTERS</p>
+      <h2 class="section-heading">Prepare. Stay Safe.</h2>
+      <p class="section-text">
+        Learn what to do before, during and after a flood.
+        Find emergency kit guidance and useful flood and
+        hospital locator tools.
+      </p>
+      <div class="placeholder">
+        Safety guide, checklist and locator tools will be built here.
+      </div>
+    </section>
+
+    <section id="emergency">
+      <p class="eyebrow">KEEP IMPORTANT NUMBERS HANDY</p>
+      <h2 class="section-heading">Emergency Help</h2>
+      <p class="section-text">
+        Keep reliable emergency contact information
+        accessible when you need help.
+      </p>
+      <div class="placeholder">
+        The emergency contact list will be added and verified
+        before the website is completed.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Safer Communities, Stronger Tomorrows</p>
+    <p>Tide Turn • Flood Awareness in Assam</p>
+  </footer>
 </body>
 </html>
