@@ -1,11 +1,21 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assam Flood Hub & Safety Guide</title>
-    <!-- Basic structural reset styling -->
     <style>
+        /* --- Step 5 Custom Styles: Global & Variables --- */
+        :root {
+            --primary-blue: #0E4C92;
+            --accent-green: #2E7D32;
+            --light-bg: #f8f9fa;
+            --text-dark: #333;
+            --white: #ffffff;
+            --card-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.08);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,103 +24,268 @@
         }
         body {
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
         }
+
+        /* --- Step 3 Styling: Navigation Menu & Dropdown --- */
         header {
-            background-color: #0E4C92;
-            color: white;
-            padding: 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        nav ul {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 1.5rem;
+            align-items: center;
         }
-        nav a {
-            color: white;
+        .nav-links a {
+            color: var(--white);
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.2s ease;
         }
+        .nav-links a:hover {
+            color: #A5D6A7;
+        }
+        /* About Us Dropdown styling using Native Summary tags */
+        details.about-dropdown {
+            position: relative;
+            cursor: pointer;
+        }
+        details.about-dropdown summary {
+            font-weight: bold;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        details.about-dropdown summary::-webkit-details-marker {
+            display: none;
+        }
+        details.about-dropdown summary::after {
+            content: " ▼";
+            font-size: 0.8rem;
+        }
+        details.about-dropdown[open] summary::after {
+            content: " ▲";
+        }
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            color: var(--text-dark);
+            padding: 1rem;
+            width: 250px;
+            border-radius: var(--card-radius);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            margin-top: 0.5rem;
+            z-index: 10;
+        }
+
         main {
-            padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
         section {
-            padding: 3rem 0;
+            padding: 4rem 0 2rem 0;
             border-bottom: 1px solid #ddd;
         }
-        h2 {
-            margin-bottom: 1rem;
-            color: #0E4C92;
+
+        /* --- Step 4 Styling: Home & Hero Elements --- */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background-color: #cce5ff; /* Fallback flat color while structural image loads */
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            margin-top: 1rem;
+            box-shadow: var(--shadow);
         }
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(65%);
+        }
+        .slogan-left {
+            position: absolute;
+            top: 35%;
+            left: 5%;
+            color: var(--white);
+            max-width: 50%;
+        }
+        .slogan-left h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            margin-bottom: 0.5rem;
+        }
+        .slogan-right {
+            position: absolute;
+            bottom: 8%;
+            right: 5%;
+            color: var(--white);
+            background-color: rgba(46, 125, 50, 0.85); /* Accent Green with opacity */
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Feature Cards Component Layout Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .feature-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .feature-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .card-btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+        .card-btn:hover {
+            background-color: var(--accent-green);
+        }
+
+        /* Structural utility placeholders for upcoming sections */
         .placeholder-content {
             background: #fff;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px dashed #ccc;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Navigation Header -->
+    <!-- Step 3: Main Navigation Header -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#information">Information</a></li>
-                <li><a href="#safety">Safety Guidelines</a></li>
-                <li><a href="#emergency">Emergency Help</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#information">Information</a></li>
+                    <li><a href="#safety">Safety Guidelines</a></li>
+                    <li><a href="#emergency">Emergency Help</a></li>
+                    <!-- Expandable About Us Dropdown Component -->
+                    <li>
+                        <details class="about-dropdown">
+                            <summary>About Us</summary>
+                            <div class="dropdown-content">
+                                <h4>Assam Flood Hub Initiative</h4>
+                                <p style="font-size: 0.85rem; color:#555; margin-top:0.5rem;">
+                                    We are dedicated to providing real-time local updates, direct maps, structural data statistics, and safety rules for high-risk flood zones across Assam.
+                                </p>
+                            </div>
+                        </details>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- Main Page Content Structure -->
+    <!-- Main Content Context Frame -->
     <main>
 
-        <!-- Home Section -->
+        <!-- Step 4: Home Section with Visual Banner Layout & Navigation Quick Links -->
         <section id="home">
-            <h2>Welcome to Assam Flood Hub</h2>
-            <div class="placeholder-content">
-                <p>Layout container for the hero photograph, slogan text, and feature navigation cards (Step 4 & 5).</p>
+            <div class="hero-banner">
+                <!-- Replace src with your local directory photograph path once sourced -->
+                <img class="hero-image" src="https://unsplash.com" alt="Flooded rural landscape showing submerged plains and local community infrastructure in Assam">
+                
+                <div class="slogan-left">
+                    <h1>Assam Flood Hub</h1>
+                    <p>Empowering local communities with immediate insight, tracking metrics, and safe response solutions.</p>
+                </div>
+                
+                <div class="slogan-right">
+                    Be aware, be prepared, be safe
+                </div>
+            </div>
+
+            <!-- Four Rectangular Feature Navigation Cards arranged using CSS Grid -->
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div>
+                        <h3>Flood Tracker</h3>
+                        <p>Access active territorial warning indicators and real-time mapping charts.</p>
+                    </div>
+                    <a href="#safety" class="card-btn">Open Map Tracker</a>
+                </div>
+
+                <div class="feature-card">
+                    <div>
+                        <h3>Safety Checklist</h3>
+                        <p>Review comprehensive preparation guides, emergency item lists, and action packs.</p>
+                    </div>
+                    <a href="#safety" class="card-btn">View Guidelines</a>
+                </div>
+
+                <div class="feature-card">
+                    <div>
+                        <h3>Data & Statistics</h3>
+                        <p>Analyze verified river system measurements, historical timelines, and impact reports.</p>
+                    </div>
+                    <a href="#information" class="card-btn">Explore Statistics</a>
+                </div>
+
+                <div class="feature-card">
+                    <div>
+                        <h3>Hospital Locator</h3>
+                        <p>Locate operational emergency care complexes and primary medical aid groups.</p>
+                    </div>
+                    <a href="#emergency" class="card-btn">Find Medical Care</a>
+                </div>
             </div>
         </section>
 
-        <!-- Information Section -->
-        <section id="information">
-            <h2>Flood Information & Data Insights</h2>
-            <div class="placeholder-content">
-                <p>Layout container for river maps, structural statistics, and CSS data graphs (Step 6 & 7).</p>
-            </div>
-        </section>
-
-        <!-- Safety Section -->
-        <section id="safety">
-            <h2>Safety & Preparedness Protocols</h2>
-            <div class="placeholder-content">
-                <p>Layout container for Before/During/After accordions, checklist tracking, and interactive flood mapping (Step 10 & 11).</p>
-            </div>
-        </section>
-
-        <!-- Emergency Help Section -->
-        <section id="emergency">
-            <h2>Emergency Assistance & Resources</h2>
-            <div class="placeholder-content">
-                <p>Layout container for essential point-of-contact lists, hotlines, and hospital locator services (Step 12).</p>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Interactive JavaScript Layer Hooks -->
-    <script>
-        // Diagnostic confirmation that script parses fine on initial load
-        console.log("Assam Flood Hub system framework successfully initialized.");
-        
-        // Interactive functions for upcoming timeline steps will live here
-    </script>
-</body>
-</html>
+        <!-- Information Section Placeholder (Steps 6 & 7) -->
