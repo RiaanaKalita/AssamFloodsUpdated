@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assam Flood Hub & Safety Guide</title>
     <style>
-        /* --- Step 5 Custom Styles: Global & Variables --- */
+        /* --- Step 5 Design Variables --- */
         :root {
             --primary-blue: #0E4C92;
             --accent-green: #2E7D32;
@@ -28,7 +28,6 @@
             background-color: var(--light-bg);
         }
 
-        /* --- Step 3 Styling: Navigation Menu & Dropdown --- */
         header {
             background-color: var(--primary-blue);
             color: var(--white);
@@ -44,7 +43,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
         }
         .nav-links {
             display: flex;
@@ -56,12 +54,7 @@
             color: var(--white);
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.2s ease;
         }
-        .nav-links a:hover {
-            color: #A5D6A7;
-        }
-        /* About Us Dropdown styling using Native Summary tags */
         details.about-dropdown {
             position: relative;
             cursor: pointer;
@@ -73,16 +66,9 @@
             align-items: center;
             gap: 4px;
         }
-        details.about-dropdown summary::-webkit-details-marker {
-            display: none;
-        }
-        details.about-dropdown summary::after {
-            content: " ▼";
-            font-size: 0.8rem;
-        }
-        details.about-dropdown[open] summary::after {
-            content: " ▲";
-        }
+        details.about-dropdown summary::after { content: " ▼"; font-size: 0.8rem; }
+        details.about-dropdown[open] summary::after { content: " ▲"; }
+        
         .dropdown-content {
             position: absolute;
             top: 100%;
@@ -107,12 +93,12 @@
             border-bottom: 1px solid #ddd;
         }
 
-        /* --- Step 4 Styling: Home & Hero Elements --- */
+        /* --- Step 4 Layout: Home Banner --- */
         .hero-banner {
             position: relative;
             width: 100%;
-            height: 450px;
-            background-color: #cce5ff; /* Fallback flat color while structural image loads */
+            height: 400px;
+            background-color: #cce5ff;
             border-radius: var(--card-radius);
             overflow: hidden;
             margin-top: 1rem;
@@ -133,23 +119,20 @@
         }
         .slogan-left h1 {
             font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
             margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
         .slogan-right {
             position: absolute;
             bottom: 8%;
             right: 5%;
             color: var(--white);
-            background-color: rgba(46, 125, 50, 0.85); /* Accent Green with opacity */
+            background-color: var(--accent-green);
             padding: 0.6rem 1.2rem;
             border-radius: 4px;
-            font-size: 1.1rem;
             font-weight: bold;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* Feature Cards Component Layout Grid */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -165,19 +148,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-        }
-        .feature-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 0.75rem;
-        }
-        .feature-card p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1.5rem;
         }
         .card-btn {
             display: inline-block;
@@ -188,14 +158,87 @@
             border-radius: 4px;
             text-align: center;
             font-weight: bold;
-            font-size: 0.9rem;
-            transition: background 0.2s ease;
-        }
-        .card-btn:hover {
-            background-color: var(--accent-green);
+            margin-top: 1rem;
         }
 
-        /* Structural utility placeholders for upcoming sections */
+        /* --- Step 6 Layout: Information Subsections --- */
+        .info-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .info-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+        }
+        .info-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        .info-card p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* --- Step 7 Layout: Pure CSS Graph Component --- */
+        .chart-container {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+        .chart-title-block {
+            margin-bottom: 1.5rem;
+        }
+        .chart-source {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            border-left: 2px solid #555;
+            padding-left: 0.5rem;
+        }
+        .chart-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .row-label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #444;
+        }
+        .bar-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .data-bar {
+            height: 28px;
+            background-color: var(--primary-blue);
+            border-radius: 0 4px 4px 0;
+            transition: width 0.5s ease;
+        }
+        /* Custom visual indicator highlighting severe warning levels */
+        .data-bar.alert {
+            background-color: #c62828;
+        }
+        .row-value {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #333;
+        }
+
         .placeholder-content {
             background: #fff;
             padding: 2rem;
@@ -207,7 +250,6 @@
 </head>
 <body>
 
-    <!-- Step 3: Main Navigation Header -->
     <header>
         <div class="nav-container">
             <nav>
@@ -216,7 +258,6 @@
                     <li><a href="#information">Information</a></li>
                     <li><a href="#safety">Safety Guidelines</a></li>
                     <li><a href="#emergency">Emergency Help</a></li>
-                    <!-- Expandable About Us Dropdown Component -->
                     <li>
                         <details class="about-dropdown">
                             <summary>About Us</summary>
@@ -233,59 +274,31 @@
         </div>
     </header>
 
-    <!-- Main Content Context Frame -->
     <main>
 
-        <!-- Step 4: Home Section with Visual Banner Layout & Navigation Quick Links -->
+        <!-- Home Section Component Frame -->
         <section id="home">
             <div class="hero-banner">
-                <!-- Replace src with your local directory photograph path once sourced -->
-                <img class="hero-image" src="https://unsplash.com" alt="Flooded rural landscape showing submerged plains and local community infrastructure in Assam">
-                
+                <img class="hero-image" src="https://unsplash.com" alt="Flooded community layout in Assam">
                 <div class="slogan-left">
                     <h1>Assam Flood Hub</h1>
                     <p>Empowering local communities with immediate insight, tracking metrics, and safe response solutions.</p>
                 </div>
-                
-                <div class="slogan-right">
-                    Be aware, be prepared, be safe
-                </div>
+                <div class="slogan-right">Be aware, be prepared, be safe</div>
             </div>
 
-            <!-- Four Rectangular Feature Navigation Cards arranged using CSS Grid -->
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div>
-                        <h3>Flood Tracker</h3>
-                        <p>Access active territorial warning indicators and real-time mapping charts.</p>
-                    </div>
+                    <div><h3>Flood Tracker</h3><p>Access active territorial warning indicators and real-time mapping charts.</p></div>
                     <a href="#safety" class="card-btn">Open Map Tracker</a>
                 </div>
-
                 <div class="feature-card">
-                    <div>
-                        <h3>Safety Checklist</h3>
-                        <p>Review comprehensive preparation guides, emergency item lists, and action packs.</p>
-                    </div>
+                    <div><h3>Safety Checklist</h3><p>Review comprehensive preparation guides, emergency item lists, and action packs.</p></div>
                     <a href="#safety" class="card-btn">View Guidelines</a>
                 </div>
-
                 <div class="feature-card">
-                    <div>
-                        <h3>Data & Statistics</h3>
-                        <p>Analyze verified river system measurements, historical timelines, and impact reports.</p>
-                    </div>
+                    <div><h3>Data & Statistics</h3><p>Analyze verified river system measurements, historical timelines, and impact reports.</p></div>
                     <a href="#information" class="card-btn">Explore Statistics</a>
                 </div>
-
                 <div class="feature-card">
-                    <div>
-                        <h3>Hospital Locator</h3>
-                        <p>Locate operational emergency care complexes and primary medical aid groups.</p>
-                    </div>
-                    <a href="#emergency" class="card-btn">Find Medical Care</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Information Section Placeholder (Steps 6 & 7) -->
+                    <div><h3>Hospital Locator</h3><p>Locate operational emergency care complexes and primary medical aid groups.</p></div>
