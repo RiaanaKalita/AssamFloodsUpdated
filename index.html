@@ -1,11 +1,9 @@
 
-<
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Tide Turn | Flood Awareness in Assam</title>
   <meta name="description" content="A clear guide to flood awareness, preparedness and safety in Assam.">
 
@@ -29,15 +27,16 @@
       --pale: #F3F9FC;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html, body {
+      width: 100%;
+      height: 100%;
     }
 
     body {
       font-family: 'Varela Round', sans-serif;
       color: var(--ink);
-      background: var(--white);
-      line-height: 1.7;
+      background: var(--pale);
+      overflow: hidden;
     }
 
     h1, h2, h3, .logo {
@@ -45,26 +44,23 @@
       line-height: 1.2;
     }
 
-    a {
-      color: inherit;
-    }
-
+    /* FIXED NAVIGATION */
     header {
-      padding: 18px 6%;
+      height: 78px;
+      padding: 0 6%;
       background: var(--white);
       border-bottom: 1px solid #E1EAF0;
-    }
-
-    .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
+      position: relative;
+      z-index: 10;
     }
 
     .logo {
-      font-size: 32px;
       color: var(--navy);
+      font-size: 34px;
       text-decoration: none;
       white-space: nowrap;
     }
@@ -76,139 +72,180 @@
     nav {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
     }
 
-    nav a {
+    nav > a {
+      color: var(--ink);
       text-decoration: none;
-      font-size: 14px;
-      padding: 8px 12px;
-      border-radius: 24px;
+      font-size: 13px;
+      padding: 10px 13px;
+      border-radius: 25px;
+      white-space: nowrap;
+      transition: background 0.2s;
     }
 
-    nav a:hover {
+    nav > a:hover,
+    nav > a.active {
       background: #E7F4FB;
       color: var(--navy);
     }
 
-    main section {
-      padding: 64px 8%;
-      scroll-margin-top: 20px;
+    /* ABOUT US DROPDOWN */
+    .about-menu {
+      position: relative;
+      font-size: 13px;
     }
 
-    .intro {
-      background: var(--pale);
-      text-align: center;
+    .about-menu summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 10px 13px;
+      border-radius: 25px;
+      white-space: nowrap;
     }
 
-    .eyebrow {
+    .about-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .about-menu summary::after {
+      content: "⌄";
+      margin-left: 7px;
       color: var(--navy);
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 14px;
     }
 
-    .intro h1 {
-      color: var(--navy);
-      font-size: clamp(38px, 6vw, 60px);
-      margin-bottom: 18px;
+    .about-menu[open] summary {
+      background: #E7F4FB;
     }
 
-    .intro p {
-      max-width: 650px;
-      margin: 0 auto 20px;
+    .about-content {
+      position: absolute;
+      right: 0;
+      top: 45px;
+      width: 260px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #E1EAF0;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px #0E4C921A;
+      line-height: 1.7;
     }
 
-    .section-heading {
-      color: var(--navy);
-      font-size: 38px;
-      margin-bottom: 14px;
-    }
-
-    .section-text {
-      max-width: 700px;
-    }
-
-    .feature-cards {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 36px;
-    }
-
-    .feature-card {
-      padding: 24px;
-      background: var(--white);
-      border: 1px solid #DFEAF0;
-      border-radius: 18px;
-    }
-
-    .feature-card h3 {
-      color: var(--navy);
+    .about-content h2 {
       font-size: 24px;
-      margin-bottom: 12px;
+      color: var(--navy);
+      margin-bottom: 8px;
     }
 
-    .feature-card a {
-      display: inline-block;
-      margin-top: 14px;
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: bold;
+    /* ONE SECTION VISIBLE AT A TIME */
+    main {
+      height: calc(100dvh - 124px);
+      position: relative;
+    }
+
+    main section {
+      display: none;
+      position: absolute;
+      inset: 0;
+      padding: 45px 8%;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    main section.active {
+      display: block;
+    }
+
+    #home {
+      background: var(--pale);
     }
 
     #information {
-      background: var(--white);
+      background: white;
     }
 
     #safety {
-      background: var(--pale);
+      background: #EAF5FA;
     }
 
     #emergency {
       background: var(--green);
     }
 
-    .placeholder {
-      margin-top: 22px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 14px;
-      border: 1px solid #DCE9E7;
+    .eyebrow {
+      color: var(--navy);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 12px;
     }
 
+    .section-heading {
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 46px);
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      max-width: 680px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
     footer {
-      padding: 28px 6%;
+      height: 46px;
+      padding: 10px 6%;
       background: var(--navy);
-      color: var(--white);
+      color: white;
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     @media (max-width: 850px) {
-      .navbar {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .feature-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 520px) {
-      main section {
-        padding: 42px 6%;
-      }
-
-      .feature-cards {
-        grid-template-columns: 1fr;
+      header {
+        height: auto;
+        min-height: 78px;
+        padding: 12px 5%;
+        flex-wrap: wrap;
       }
 
       nav {
-        gap: 4px;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+
+      nav > a, .about-menu summary {
+        padding: 8px;
+        font-size: 12px;
+      }
+
+      main {
+        height: calc(100dvh - 150px);
+      }
+
+      main section {
+        padding: 32px 6%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        gap: 8px;
+      }
+
+      .logo {
+        font-size: 29px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      main {
+        height: calc(100dvh - 180px);
       }
     }
   </style>
@@ -216,97 +253,99 @@
 
 <body>
   <header>
-    <div class="navbar">
-      <a href="#home" class="logo">Tide Turn<span>.</span></a>
+    <a href="#home" class="logo" data-section="home">Tide Turn<span>.</span></a>
 
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#information">Information</a>
-        <a href="#safety">Safety</a>
-        <a href="#emergency">Emergency Help</a>
-      </nav>
-    </div>
+    <nav aria-label="Main navigation">
+      <a href="#home" data-section="home" class="active">Home</a>
+      <a href="#information" data-section="information">Information</a>
+      <a href="#safety" data-section="safety">Safety</a>
+      <a href="#emergency" data-section="emergency">Emergency Help</a>
+
+      <details class="about-menu">
+        <summary>About Us</summary>
+        <div class="about-content">
+          <h2>About Tide Turn</h2>
+          <p>
+            Tide Turn raises flood awareness and helps
+            communities in Assam learn about preparedness,
+            safety and reliable information.
+          </p>
+        </div>
+      </details>
+    </nav>
   </header>
 
   <main>
-    <section id="home" class="intro">
+    <section id="home" class="active">
       <p class="eyebrow">FLOOD AWARENESS • ASSAM, INDIA</p>
-      <h1>Knowledge today.<br>Safety tomorrow.</h1>
-      <p>
+      <h1 class="section-heading">Knowledge today.<br>Safety tomorrow.</h1>
+      <p class="section-text">
         Understand floods, prepare for emergencies and
         help build safer communities across Assam.
       </p>
-      <p><strong>Be aware. Be prepared. Be safe.</strong></p>
-
-      <div class="feature-cards">
-        <article class="feature-card">
-          <h3>Flood Safety</h3>
-          <p>Learn how to prepare and protect yourself during floods.</p>
-          <a href="#safety">Explore safety →</a>
-        </article>
-
-        <article class="feature-card">
-          <h3>Information</h3>
-          <p>Discover useful facts, news and flood awareness resources.</p>
-          <a href="#information">Learn more →</a>
-        </article>
-
-        <article class="feature-card">
-          <h3>Flood Tracker</h3>
-          <p>Find the flood monitoring tool in the safety section.</p>
-          <a href="#safety">Explore the tracker →</a>
-        </article>
-
-        <article class="feature-card">
-          <h3>Emergency Help</h3>
-          <p>Find important contacts to keep accessible in an emergency.</p>
-          <a href="#emergency">View contacts →</a>
-        </article>
-      </div>
+      <p style="margin-top: 18px;">Be aware. Be prepared. Be safe.</p>
     </section>
 
     <section id="information">
       <p class="eyebrow">LEARN • UNDERSTAND • PREPARE</p>
-      <h2 class="section-heading">Understand the Floods</h2>
+      <h1 class="section-heading">Understand the Floods</h1>
       <p class="section-text">
-        Explore flood facts, clear statistics, news updates
-        and a quiz to test your knowledge.
+        Discover flood facts, statistics, news and a quiz
+        to test your knowledge.
       </p>
-      <div class="placeholder">
-        Information, graphs, news and quiz will be built here.
-      </div>
     </section>
 
     <section id="safety">
       <p class="eyebrow">YOUR SAFETY MATTERS</p>
-      <h2 class="section-heading">Prepare. Stay Safe.</h2>
+      <h1 class="section-heading">Prepare. Stay Safe.</h1>
       <p class="section-text">
         Learn what to do before, during and after a flood.
-        Find emergency kit guidance and useful flood and
-        hospital locator tools.
+        Find emergency kit guidance and useful locator tools.
       </p>
-      <div class="placeholder">
-        Safety guide, checklist and locator tools will be built here.
-      </div>
     </section>
 
     <section id="emergency">
       <p class="eyebrow">KEEP IMPORTANT NUMBERS HANDY</p>
-      <h2 class="section-heading">Emergency Help</h2>
+      <h1 class="section-heading">Emergency Help</h1>
       <p class="section-text">
-        Keep reliable emergency contact information
-        accessible when you need help.
+        Find important emergency contacts and helpful
+        information to keep accessible when needed.
       </p>
-      <div class="placeholder">
-        The emergency contact list will be added and verified
-        before the website is completed.
-      </div>
     </section>
   </main>
 
-  <footer>
-    <p>Safer Communities, Stronger Tomorrows</p>
-    <p>Tide Turn • Flood Awareness in Assam</p>
-  </footer>
+  <footer>Safer Communities, Stronger Tomorrows · Tide Turn</footer>
+
+  <script>
+    const links = document.querySelectorAll('[data-section]');
+    const sections = document.querySelectorAll('main section');
+    const aboutMenu = document.querySelector('.about-menu');
+
+    function showSection(id) {
+      const selected = document.getElementById(id);
+      if (!selected) return;
+
+      sections.forEach(section => {
+        section.classList.toggle('active', section.id === id);
+      });
+
+      document.querySelectorAll('nav > a').forEach(link => {
+        link.classList.toggle('active', link.dataset.section === id);
+      });
+
+      aboutMenu.open = false;
+      history.replaceState(null, '', '#' + id);
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        showSection(link.dataset.section);
+      });
+    });
+
+    const startingSection = location.hash.slice(1);
+    showSection(startingSection || 'home');
+  </script>
 </body>
 </html>
