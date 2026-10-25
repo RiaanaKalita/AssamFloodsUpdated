@@ -8,26 +8,25 @@
 <style>
 *{box-sizing:border-box;margin:0;font-family:'Varela Round',sans-serif}
 body{background:#E4F4F4}
-nav{min-height:85px;display:flex;align-items:center;background:#264F8E;padding:10px 30px}
-.brand{display:flex;align-items:center;gap:12px;color:white;font-size:1.8rem;font-weight:bold;white-space:nowrap}
-.brand img{width:58px;height:58px;object-fit:contain}
-.nav-links{display:flex;flex:1;justify-content:space-evenly;margin-left:35px}
-.nav-links a{color:white;text-decoration:none;padding:14px 22px;border-radius:7px;transition:.2s}
-.nav-links a:hover,.nav-links a:focus{background:#A9DDF5;color:#183D68}
-.nav-links a.active{background:#A9DDF5;color:#183D68}
+nav{height:78px;display:flex;align-items:center;background:#264F8E;padding:6px 28px}
+.brand{display:flex;align-items:center;gap:10px;color:white;font-size:1.7rem;font-weight:bold;white-space:nowrap}
+.brand img{width:85px;height:65px;object-fit:contain}
+.nav-links{display:flex;flex:1;justify-content:space-evenly;margin-left:35px;height:100%;align-items:center}
+.nav-links a{color:white;text-decoration:none;padding:13px 25px;border-radius:7px;font-size:1.2rem;font-weight:bold;transition:.2s}
+.nav-links a:hover,.nav-links a:focus,.nav-links a.active{background:#A9DDF5;color:#183D68}
 header{position:relative;height:420px;padding:50px;background:linear-gradient(#0006,#0006),url('https://static.toiimg.com/thumb/msid-111557664,imgsize-1267916,width-400,resizemode-4/111557664.jpg') center/cover no-repeat}
 .left-content{margin-top:30px;max-width:650px}
 h1{font-size:42px;line-height:1.35;color:white;text-shadow:2px 2px 8px #000;margin-bottom:25px}
-.donate-btn{display:inline-flex;align-items:center;justify-content:center;width:145px;height:46px;background:#E9988E;color:white;font-weight:bold;text-decoration:none;border-radius:5px}
+.donate-btn{display:inline-flex;align-items:center;justify-content:center;width:145px;height:46px;background:#E9988E;color:white;font-weight:bold;text-decoration:none;border-radius:5px;font-size:1.05rem}
 .donate-btn:hover{background:#D6857B}
 .info-box{position:absolute;bottom:35px;right:30px;background:#E9988E;padding:15px 20px;border-radius:6px}
 .info-box p{font-size:20px;color:white;line-height:1.5}
-@media(max-width:650px){nav{flex-wrap:wrap;justify-content:center;gap:10px;padding:12px}.nav-links{margin:0;width:100%;justify-content:space-around}.nav-links a{padding:10px}header{padding:30px 20px}h1{font-size:32px}}
+@media(max-width:650px){nav{height:auto;flex-wrap:wrap;justify-content:center;gap:8px;padding:10px}.brand img{width:60px;height:48px}.brand{font-size:1.4rem}.nav-links{margin:0;width:100%;height:auto;justify-content:space-around}.nav-links a{padding:10px;font-size:1rem}header{padding:30px 20px}h1{font-size:32px}}
 </style>
 </head>
 <body>
 <nav>
-<div class="brand"><img src="Logo.png" alt="Tide Turn logo" style="width: 150px; height: auto;">TideTurn</div>
+<div class="brand"><img src="Logo.png" alt="TideTurn logo">TideTurn</div>
 <div class="nav-links">
 <a href="#home" class="active" onclick="selectTab(this)">Home</a>
 <a href="#information" onclick="selectTab(this)">Information</a>
@@ -39,7 +38,7 @@ h1{font-size:42px;line-height:1.35;color:white;text-shadow:2px 2px 8px #000;marg
 <h1>Safer Communities.<br>Stronger Tomorrows.</h1>
 <a href="https://assam.gov.in" target="_blank" rel="noopener noreferrer" class="donate-btn">DONATE</a>
 </div>
-<div class="info-box"><p>Be aware.Be prepared.<br>Be safe.</p></div>
+<div class="info-box"><p>Be aware. Be prepared.<br>Be safe.</p></div>
 </header>
 <script>
 function selectTab(tab){
