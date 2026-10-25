@@ -3,349 +3,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tide Turn | Flood Awareness in Assam</title>
-  <meta name="description" content="A clear guide to flood awareness, preparedness and safety in Assam.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Varela+Round&display=swap" rel="stylesheet">
-
+  <link href="https://googleapis.com" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; font-family: 'Varela Round', sans-serif; }
+    body { background: #E4F4F4; }
 
-    :root {
-      --navy: #0E4C92;
-      --sky: #89CFEF;
-      --green: #DDF2E5;
-      --ink: #17334D;
-      --white: #FFFFFF;
-      --pale: #F3F9FC;
-    }
+    /* NAVBAR */
+    nav { display: flex; justify-content: space-between; align-items: center; background: #264F8E; padding: 15px 30px; }
+    .brand { display: flex; align-items: center; gap: 15px; color: #fff; font-weight: bold; font-size: 1.3rem; }
+    nav a { text-decoration: none; color: #fff; margin-left: 25px; transition: 0.2s; }
+    nav a:hover { color: #90BEB3; }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-    }
+    /* BANNER */
+    header { position: relative; height: 500px; background: url('https://www.google.com/imgres?q=assam%20floods&imgurl=https%3A%2F%2Fimages.indianexpress.com%2F2024%2F07%2FPTI07_04_2024_000197B.jpg&imgrefurl=https%3A%2F%2Findianexpress.com%2Farticle%2Findia%2Fassam-floods-52-people-killed-cm-himanta-biswa-sarma-inspects-impacted-areas-9434365%2F&docid=mC5nWj0-wTICeM&tbnid=7uO3Aa68IPTWqM&vet=12ahUKEwiG2aySuNSXAxWA2jgGHcAkBPsQnPAOegQIQhAA..i&w=1600&h=900&hcb=2&ved=2ahUKEwiG2aySuNSXAxWA2jgGHcAkBPsQnPAOegQIQhAA') center/cover; padding: 50px; }
+    h1 { font-size: 26px; color: #fff; max-width: 500px; text-shadow: 1px 1px 4px #000; margin-top: 100px; }
 
-    body {
-      font-family: 'Varela Round', sans-serif;
-      color: var(--ink);
-      background: var(--pale);
-      overflow: hidden;
-    }
-
-    h1, h2, h3, .logo {
-      font-family: 'Akaya Kanadaka', cursive;
-      line-height: 1.2;
-    }
-
-    /* FIXED NAVIGATION */
-    header {
-      height: 78px;
-      padding: 0 6%;
-      background: var(--white);
-      border-bottom: 1px solid #E1EAF0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .logo {
-      color: var(--navy);
-      font-size: 34px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #36A982;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    nav > a {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 13px;
-      padding: 10px 13px;
-      border-radius: 25px;
-      white-space: nowrap;
-      transition: background 0.2s;
-    }
-
-    nav > a:hover,
-    nav > a.active {
-      background: #E7F4FB;
-      color: var(--navy);
-    }
-
-    /* ABOUT US DROPDOWN */
-    .about-menu {
-      position: relative;
-      font-size: 13px;
-    }
-
-    .about-menu summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 10px 13px;
-      border-radius: 25px;
-      white-space: nowrap;
-    }
-
-    .about-menu summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .about-menu summary::after {
-      content: "⌄";
-      margin-left: 7px;
-      color: var(--navy);
-    }
-
-    .about-menu[open] summary {
-      background: #E7F4FB;
-    }
-
-    .about-content {
-      position: absolute;
-      right: 0;
-      top: 45px;
-      width: 260px;
-      padding: 20px;
-      background: white;
-      border: 1px solid #E1EAF0;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px #0E4C921A;
-      line-height: 1.7;
-    }
-
-    .about-content h2 {
-      font-size: 24px;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    /* ONE SECTION VISIBLE AT A TIME */
-    main {
-      height: calc(100dvh - 124px);
-      position: relative;
-    }
-
-    main section {
-      display: none;
-      position: absolute;
-      inset: 0;
-      padding: 45px 8%;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-    }
-
-    main section.active {
-      display: block;
-    }
-
-    #home {
-      background: var(--pale);
-    }
-
-    #information {
-      background: white;
-    }
-
-    #safety {
-      background: #EAF5FA;
-    }
-
-    #emergency {
-      background: var(--green);
-    }
-
-    .eyebrow {
-      color: var(--navy);
-      font-size: 11px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
-
-    .section-heading {
-      color: var(--navy);
-      font-size: clamp(32px, 4vw, 46px);
-      margin-bottom: 15px;
-    }
-
-    .section-text {
-      max-width: 680px;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    /* FOOTER */
-    footer {
-      height: 46px;
-      padding: 10px 6%;
-      background: var(--navy);
-      color: white;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    @media (max-width: 850px) {
-      header {
-        height: auto;
-        min-height: 78px;
-        padding: 12px 5%;
-        flex-wrap: wrap;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 2px;
-      }
-
-      nav > a, .about-menu summary {
-        padding: 8px;
-        font-size: 12px;
-      }
-
-      main {
-        height: calc(100dvh - 150px);
-      }
-
-      main section {
-        padding: 32px 6%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        gap: 8px;
-      }
-
-      .logo {
-        font-size: 29px;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      main {
-        height: calc(100dvh - 180px);
-      }
-    }
+    /* INFO BOX */
+    .info-box { position: absolute; bottom: 30px; right: 30px; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 6px; max-width: 340px; }
+    .info-box p { font-size: 20px; color: #222; margin-bottom: 15px; }
+    
+    /* DONATE BUTTON */
+    .btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #E9988E; border-radius: 4px; float: right; }
+    .btn:hover { background: #d6857b; }
   </style>
 </head>
-
 <body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="brand"><img src="https://www.google.com/imgres?q=paper%20boat%20logo%20no%20bg&imgurl=https%3A%2F%2Fpng.pngtree.com%2Felement_pic%2F16%2F12%2F07%2F89830320eb02f73f14b9e4903344cc39.jpg&imgrefurl=https%3A%2F%2Fpngtree.com%2Fso%2Fpaper-boat&docid=V72nMAAC2qIrLM&tbnid=nREIRolFYWh8eM&vet=12ahUKEwib_cPat9SXAxWDzzgGHW7GEfQQnPAOegUIygEQAA..i&w=360&h=360&hcb=2&ved=2ahUKEwib_cPat9SXAxWDzzgGHW7GEfQQnPAOegUIygEQAA" alt="L"> TideTurn</div>
+    <div><a href="#">Home</a><a href="#">Information</a><a href="#">Safety</a></div>
+  </nav>
+
+  <!-- BANNER -->
   <header>
-    <a href="#home" class="logo" data-section="home">Tide Turn<span>.</span></a>
-
-    <nav aria-label="Main navigation">
-      <a href="#home" data-section="home" class="active">Home</a>
-      <a href="#information" data-section="information">Information</a>
-      <a href="#safety" data-section="safety">Safety</a>
-      <a href="#emergency" data-section="emergency">Emergency Help</a>
-
-      <details class="about-menu">
-        <summary>About Us</summary>
-        <div class="about-content">
-          <h2>About Tide Turn</h2>
-          <p>
-            Tide Turn raises flood awareness and helps
-            communities in Assam learn about preparedness,
-            safety and reliable information.
-          </p>
-        </div>
-      </details>
-    </nav>
+    <h1>Safer Communities. <br> Stronger Tomorrows</h1>
+    
+    <!-- INFO BOX -->
+    <div class="info-box">
+      <p>Be aware. Be prepared. <br> Be safe.</p>
+      
+      <!-- DONATE BUTTON -->
+      <a href="https://assam.gov.in" target="_blank" class="btn" title="Donate">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </header>
 
-  <main>
-    <section id="home" class="active">
-      <p class="eyebrow">FLOOD AWARENESS • ASSAM, INDIA</p>
-      <h1 class="section-heading">Knowledge today.<br>Safety tomorrow.</h1>
-      <p class="section-text">
-        Understand floods, prepare for emergencies and
-        help build safer communities across Assam.
-      </p>
-      <p style="margin-top: 18px;">Be aware. Be prepared. Be safe.</p>
-    </section>
-
-    <section id="information">
-      <p class="eyebrow">LEARN • UNDERSTAND • PREPARE</p>
-      <h1 class="section-heading">Understand the Floods</h1>
-      <p class="section-text">
-        Discover flood facts, statistics, news and a quiz
-        to test your knowledge.
-      </p>
-    </section>
-
-    <section id="safety">
-      <p class="eyebrow">YOUR SAFETY MATTERS</p>
-      <h1 class="section-heading">Prepare. Stay Safe.</h1>
-      <p class="section-text">
-        Learn what to do before, during and after a flood.
-        Find emergency kit guidance and useful locator tools.
-      </p>
-    </section>
-
-    <section id="emergency">
-      <p class="eyebrow">KEEP IMPORTANT NUMBERS HANDY</p>
-      <h1 class="section-heading">Emergency Help</h1>
-      <p class="section-text">
-        Find important emergency contacts and helpful
-        information to keep accessible when needed.
-      </p>
-    </section>
-  </main>
-
-  <footer>Safer Communities, Stronger Tomorrows · Tide Turn</footer>
-
-  <script>
-    const links = document.querySelectorAll('[data-section]');
-    const sections = document.querySelectorAll('main section');
-    const aboutMenu = document.querySelector('.about-menu');
-
-    function showSection(id) {
-      const selected = document.getElementById(id);
-      if (!selected) return;
-
-      sections.forEach(section => {
-        section.classList.toggle('active', section.id === id);
-      });
-
-      document.querySelectorAll('nav > a').forEach(link => {
-        link.classList.toggle('active', link.dataset.section === id);
-      });
-
-      aboutMenu.open = false;
-      history.replaceState(null, '', '#' + id);
-    }
-
-    links.forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        showSection(link.dataset.section);
-      });
-    });
-
-    const startingSection = location.hash.slice(1);
-    showSection(startingSection || 'home');
-  </script>
 </body>
 </html>
