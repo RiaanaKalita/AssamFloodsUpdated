@@ -2,49 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TideTurn</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;font-family:'Varela Round',sans-serif}
-body{background:#E4F4F4}
+body{background:#E4F4F4;color:#183D68}
 nav{height:78px;display:flex;align-items:center;background:#264F8E;padding:6px 28px}
-.brand{display:flex;align-items:center;gap:10px;color:white;font-size:1.7rem;font-weight:bold;white-space:nowrap}
+.brand{display:flex;align-items:center;gap:10px;color:white;font-size:1.7rem;font-weight:bold}
 .brand img{width:85px;height:65px;object-fit:contain}
-.nav-links{display:flex;flex:1;justify-content:space-evenly;margin-left:35px;height:100%;align-items:center}
-.nav-links a{color:white;text-decoration:none;padding:13px 25px;border-radius:7px;font-size:1.2rem;font-weight:bold;transition:.2s}
-.nav-links a:hover,.nav-links a:focus,.nav-links a.active{background:#A9DDF5;color:#183D68}
-header{position:relative;height:420px;padding:50px;background:linear-gradient(#0006,#0006),url('https://static.toiimg.com/thumb/msid-111557664,imgsize-1267916,width-400,resizemode-4/111557664.jpg') center/cover no-repeat}
-.left-content{margin-top:30px;max-width:650px}
-h1{font-size:42px;line-height:1.35;color:white;text-shadow:2px 2px 8px #000;margin-bottom:25px}
-.donate-btn{display:inline-flex;align-items:center;justify-content:center;width:145px;height:46px;background:#E9988E;color:white;font-weight:bold;text-decoration:none;border-radius:5px;font-size:1.05rem}
-.donate-btn:hover{background:#D6857B}
-.info-box{position:absolute;bottom:35px;right:30px;background:#E9988E;padding:15px 20px;border-radius:6px}
-.info-box p{font-size:20px;color:white;line-height:1.5}
-@media(max-width:650px){nav{height:auto;flex-wrap:wrap;justify-content:center;gap:8px;padding:10px}.brand img{width:60px;height:48px}.brand{font-size:1.4rem}.nav-links{margin:0;width:100%;height:auto;justify-content:space-around}.nav-links a{padding:10px;font-size:1rem}header{padding:30px 20px}h1{font-size:32px}}
+.nav-links{display:flex;flex:1;justify-content:space-evenly;margin-left:35px}
+.nav-links a{color:white;text-decoration:none;padding:13px 20px;border-radius:7px;font-size:1.1rem}
+.nav-links a:hover,.nav-links a:focus{background:#A9DDF5;color:#183D68}
+header{height:350px;padding:45px;background:linear-gradient(#0006,#0006),url('https://static.toiimg.com/thumb/msid-111557664,imgsize-1267916,width-400,resizemode-4/111557664.jpg') center/cover no-repeat}
+h1{font-size:42px;color:white;line-height:1.35;text-shadow:2px 2px 8px #000;margin:25px 0}
+.donate-btn,.go{background:#E9988E;color:white;text-decoration:none;font-weight:bold;border:0;border-radius:5px;padding:14px 28px;display:inline-block}
+.info-box{float:right;margin-top:100px;background:#E9988E;padding:15px 20px;border-radius:6px;color:white;font-size:20px}
+main{padding:28px 30px;display:flex;gap:24px;align-items:stretch}
+h2{font-size:20px;color:#111;margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;flex:1}
+.card{background:#7EBCCB;border-radius:12px;padding:20px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.icon{font-size:38px}
+.card h3{font-size:18px;color:#183D68}
+.card p{font-size:16px;line-height:1.45;flex:1;color:#183D68}
+.go{padding:10px 25px;margin-top:5px}
+.go:hover,.donate-btn:hover{background:#D6857B}
+.about{width:190px;flex-shrink:0;text-align:center}
+.about h2{margin-bottom:14px}
+.about img{width:145px;height:145px;border-radius:50%;object-fit:cover}
+details{margin-top:12px;font-size:15px;text-align:left;color:#183D68}
+summary{cursor:pointer;text-align:center;font-size:23px;list-style:none}
+summary::after{content:"⌄"}
+details[open] summary::after{content:"⌃"}
+details p{padding:12px 4px;line-height:1.5}
+.waves{height:35px;overflow:hidden;position:relative;background:#A9DDF5}
+.waves:before{content:"";position:absolute;width:200%;height:70px;top:-45px;left:-10%;border-radius:45%;background:#7EBCCB;animation:wave 5s linear infinite}
+@keyframes wave{to{transform:translateX(-10%)}}
+@media(max-width:850px){main{flex-direction:column}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.about{width:100%}}
+@media(max-width:550px){nav{height:auto;flex-wrap:wrap;justify-content:center;padding:10px}.brand img{width:60px;height:50px}.nav-links{margin:0;width:100%}.nav-links a{padding:10px 8px;font-size:.9rem}header{height:320px;padding:20px}h1{font-size:32px}.info-box{margin-top:20px}.cards{grid-template-columns:1fr 1fr}main{padding:20px 12px}}
 </style>
 </head>
 <body>
 <nav>
 <div class="brand"><img src="Logo.png" alt="TideTurn logo">TideTurn</div>
-<div class="nav-links">
-<a href="#home" class="active" onclick="selectTab(this)">Home</a>
-<a href="#information" onclick="selectTab(this)">Information</a>
-<a href="#safety" onclick="selectTab(this)">Safety</a>
-</div>
+<div class="nav-links"><a href="index.html">Home</a><a href="information.html">Information</a><a href="safety.html">Safety</a></div>
 </nav>
-<header id="home">
-<div class="left-content">
+<header>
+<div class="info-box">Be aware. Be prepared.<br>Be safe.</div>
 <h1>Safer Communities.<br>Stronger Tomorrows.</h1>
 <a href="https://assam.gov.in" target="_blank" rel="noopener noreferrer" class="donate-btn">DONATE</a>
-</div>
-<div class="info-box"><p>Be aware. Be prepared.<br>Be safe.</p></div>
 </header>
-<script>
-function selectTab(tab){
-document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-tab.classList.add('active');
-}
-</script>
+<main>
+<section class="cards">
+<article class="card"><div class="icon">🌍</div><h3>Flood Tracker</h3><p>Example description for the flood tracker.</p><a class="go" href="safety.html">GO!</a></article>
+<article class="card"><div class="icon">📖</div><h3>Info</h3><p>Example description for the information section.</p><a class="go" href="information.html">GO!</a></article>
+<article class="card"><div class="icon">📱</div><h3>Quizzes</h3><p>Example description for the quizzes section.</p><a class="go" href="information.html">GO!</a></article>
+<article class="card"><div class="icon">🧰</div><h3>Get Help</h3><p>Example description for getting help.</p><a class="go" href="safety.html">GO!</a></article>
+</section>
+<aside class="about">
+<h2>About Us</h2>
+<img src="Creator.png" alt="TideTurn creator">
+<details><summary aria-label="Read about us"></summary><p>Example text about the creator and the purpose of TideTurn. Replace this with your own description!</p></details>
+</aside>
+</main>
+<div class="waves"></div>
 </body>
 </html>
