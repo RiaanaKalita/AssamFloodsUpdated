@@ -2,45 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TideTurn | Stay Informed. Stay Safe.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TideTurn</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#E4F4F4;color:#183D68;font-family:'Varela Round',sans-serif}
-nav{height:78px;background:#264F8E;display:flex;align-items:center;padding:0 20px;gap:15px;position:relative;z-index:2}
-nav img{width:110px;height:94px;object-fit:contain;flex-shrink:0;transform:scale(1.1)}
-.brand{font-size:1.7rem;font-weight:bold;color:white;white-space:nowrap}
-.links{display:flex;justify-content:space-evenly;align-items:center;flex:1}
-.links a{color:white;text-decoration:none;font-size:1.1rem;font-weight:bold;padding:11px 24px;border-radius:9px;white-space:nowrap}
-.links a:hover,.links a:focus{background:#A9DDF5;color:#183D68}
-.banner{height:350px;position:relative;background:linear-gradient(90deg,#183D6855,transparent),url('https://static.toiimg.com/thumb/msid-111557664,imgsize-1267916,width-400,resizemode-4/111557664.jpg') center/cover}
-.banner h1{position:absolute;top:45px;left:5%;color:white;font-size:2.5rem;text-shadow:1px 2px 5px #183D68}
-.btn{display:inline-block;background:#E9988E;color:#183D68;text-decoration:none;border:0;border-radius:8px;padding:10px 22px;font-weight:bold;cursor:pointer}
-.banner .btn{position:absolute;top:220px;left:5%}.safe{position:absolute;right:0;bottom:0;background:#E9988E;padding:12px 18px;font-weight:bold}
-main{padding:24px 22px 0}h2{font-size:20px;color:#111;margin:0 0 16px}
-.content{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:22px;align-items:start}
-.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}
-.card{background:#7EBCCB;border-radius:13px;padding:16px 9px;text-align:center;min-height:230px}
-.icon{font-size:2.5rem;margin:2px 0 12px}.card h3{font-size:1rem;margin:0 0 10px}
-.card p{font-size:16px;line-height:1.4;min-height:44px;margin:0 0 14px}
-.about{text-align:center;background:#D4EBF0;border-radius:13px;padding:14px}
-.about img{width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid white}
-details{margin-top:10px;text-align:left}summary{cursor:pointer;list-style:none;text-align:center;font-size:1.3rem;font-weight:bold}
-summary::-webkit-details-marker{display:none}summary:after{content:"⌄";margin-left:8px}
-details[open] summary:after{content:"⌃"}details p{font-size:14px;line-height:1.5}
-.waves{height:80px;margin-top:25px;overflow:hidden}.waves svg{width:100%;height:100%;display:block}
-@media(max-width:850px){nav img{width:75px}.brand{font-size:1.3rem}.links a{font-size:.9rem;padding:8px}.content{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+*{box-sizing:border-box;margin:0;font-family:'Varela Round',sans-serif}
+body{background:#E4F4F4;color:#183D68}
+nav{height:78px;display:flex;align-items:center;background:#264F8E;padding:6px 28px}
+.brand{display:flex;align-items:center;gap:10px;color:white;font-size:1.7rem;font-weight:bold}
+.brand img{width:85px;height:65px;object-fit:contain}
+.nav-links{display:flex;flex:1;justify-content:space-evenly;margin-left:35px;height:100%;align-items:center}
+.nav-links a{color:white;text-decoration:none;padding:13px 25px;border-radius:7px;font-size:1.2rem}
+.nav-links a:hover,.nav-links a:focus,.nav-links a.active{background:#A9DDF5;color:#183D68}
+header{position:relative;height:420px;padding:50px;background:linear-gradient(#0006,#0006),url('https://static.toiimg.com/thumb/msid-111557664,imgsize-1267916,width-400,resizemode-4/111557664.jpg') center/cover}
+.left-content{margin-top:30px;max-width:650px}
+h1{font-size:42px;line-height:1.35;color:white;text-shadow:2px 2px 8px #000;margin-bottom:25px}
+.donate-btn{display:inline-flex;align-items:center;justify-content:center;width:145px;height:46px;background:#E9988E;color:#183D68;text-decoration:none;border-radius:8px;font-weight:bold}
+.donate-btn:hover{background:#D6857B}
+.info-box{position:absolute;bottom:10px;right:30px;background:#E9988E;padding:15px 20px;border-radius:8px}
+.info-box p{font-size:20px;color:white;line-height:1.5}
+section{padding:22px;text-align:center}
+h2{margin-bottom:16px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:white;padding:18px 10px;border-radius:12px;box-shadow:0 3px 10px #183d6820}
+.card h3{margin:8px 0}
+.card p{line-height:1.4}
+.card a{display:inline-block;margin-top:10px;padding:9px 18px;border-radius:7px;background:#264F8E;color:white;text-decoration:none}
+.about{padding:10px 25px;text-align:center}
+.about summary{cursor:pointer;font-weight:bold;background:#A9DDF5;padding:12px;border-radius:8px}
+.about img{width:75px;height:75px;object-fit:cover;border-radius:50%;margin:10px}
+.about p{margin:8px auto;max-width:600px;line-height:1.5}
+.waves{height:80px;margin-top:15px;overflow:hidden}
+.waves svg{width:100%;height:100%;display:block}
+@media(max-width:650px){nav{height:auto;flex-wrap:wrap;justify-content:center;gap:8px;padding:10px}.nav-links{margin:0;flex-wrap:wrap}.nav-links a{padding:10px}header{padding:25px;height:390px}h1{font-size:32px}.info-box{right:10px;bottom:10px}.cards{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-<nav><img src="Logo.png" alt="TideTurn logo"><span class="brand">TideTurn</span><div class="links"><a href="index.html">Home</a><a href="information.html">Info</a><a href="safety.html">Safety</a></div></nav>
-<header class="banner"><h1>Safer Communities.<br>Stronger Tomorrows.</h1><a class="btn" href="https://assam.gov.in/">DONATE →</a><div class="safe">Be aware. Be prepared. Be safe.</div></header>
-<main><h2>What do you want to do?</h2><div class="content"><section class="cards">
-<article class="card"><div class="icon">🌍</div><h3>Flood Tracker</h3><p>Example description for the flood tracker.</p><a class="btn" href="safety.html">GO!</a></article>
-<article class="card"><div class="icon">📖</div><h3>Info</h3><p>Example description for flood safety information.</p><a class="btn" href="information.html">GO!</a></article>
-<article class="card"><div class="icon">📱</div><h3>Quizzes</h3><p>Example description for interactive quizzes.</p><a class="btn" href="information.html">GO!</a></article>
-<article class="card"><div class="icon">🩹</div><h3>Get Help</h3><p>Example description for emergency help and contacts.</p><a class="btn" href="safety.html">GO!</a></article>
-</section><aside class="about"><h2>About Us</h2><img src="Creator.png" alt="TideTurn creator"><details><summary aria-label="Read about us"></summary><p>Example text about the creator and purpose of TideTurn. Replace this with your own description!</p></details></aside></div></main>
+<nav>
+<div class="brand"><img src="Logo.png" alt="TideTurn logo">TideTurn</div>
+<div class="nav-links"><a href="#home" class="active">Home</a><a href="information.html">Information</a><a href="safety.html">Safety</a></div>
+</nav>
+<header id="home">
+<div class="left-content"><h1>Safer Communities.<br>Stronger Tomorrows.</h1><a href="https://cm.assam.gov.in/donate" target="_blank" rel="noopener noreferrer" class="donate-btn">DONATE</a></div>
+<div class="info-box"><p>Be aware. Be prepared.<br>Be safe.</p></div>
+</header>
+<section id="homecards">
+<h2>What would you like to do?</h2>
+<div class="cards">
+<div class="card"><h3>🌍 Flood Tracker</h3><p>Explore flood information and locations.</p><a href="https://sites.research.google/floods/l/-0.17578098123893685/-0.7031249362505942/3">GO</a></div>
+<div class="card"><h3>📖 Information</h3><p>Learn about floods and staying prepared.</p><a href="information.html">GO</a></div>
+<div class="card"><h3>📝 Quizzes</h3><p>Test your knowledge on flood awareness topics.</p><a href="information.html">GO</a></div>
+<div class="card"><h3>🩹 Get Help</h3><p>Find emergency and safety information.</p><a href="safety.html">GO</a></div>
+</div>
+</section>
+<section class="about">
+<details><summary>About Us</summary><img src="Creator.png" alt="Website creator"><p>TideTurn helps people learn about floods, prepare for emergencies and find reliable safety information. Our goal is to support safer, more prepared communities in Assam.</p></details>
+</section>
 <div class="waves" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 45 Q180 100 360 48 T720 50 T1080 48 T1440 45 V120 H0Z" fill="#A9DDF5"/><path d="M0 72 Q220 20 440 75 T880 70 T1320 75 T1440 65 V120 H0Z" fill="#7EBCCB"/><path d="M0 95 Q250 60 500 95 T1000 90 T1440 88 V120 H0Z" fill="#264F8E"/></svg></div>
 </body>
 </html>
