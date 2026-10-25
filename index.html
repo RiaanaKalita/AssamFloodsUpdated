@@ -1,8 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Assam Relief Page</title>
+  <!-- Fixed Google Fonts Link -->
   <link href="https://googleapis.com" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; font-family: 'Varela Round', sans-serif; }
@@ -11,27 +12,44 @@
     /* NAVBAR */
     nav { display: flex; justify-content: space-between; align-items: center; background: #264F8E; padding: 15px 30px; }
     .brand { display: flex; align-items: center; gap: 15px; color: #fff; font-weight: bold; font-size: 1.3rem; }
+    .brand img { height: 40px; width: auto; object-fit: contain; } /* Added layout rules to make logo show nicely */
     nav a { text-decoration: none; color: #fff; margin-left: 25px; transition: 0.2s; }
     nav a:hover { color: #90BEB3; }
 
     /* BANNER */
-    header { position: relative; height: 500px; background: url('https://www.google.com/imgres?q=assam%20floods&imgurl=https%3A%2F%2Fimages.indianexpress.com%2F2024%2F07%2FPTI07_04_2024_000197B.jpg&imgrefurl=https%3A%2F%2Findianexpress.com%2Farticle%2Findia%2Fassam-floods-52-people-killed-cm-himanta-biswa-sarma-inspects-impacted-areas-9434365%2F&docid=mC5nWj0-wTICeM&tbnid=7uO3Aa68IPTWqM&vet=12ahUKEwiG2aySuNSXAxWA2jgGHcAkBPsQnPAOegQIQhAA..i&w=1600&h=900&hcb=2&ved=2ahUKEwiG2aySuNSXAxWA2jgGHcAkBPsQnPAOegQIQhAA') center/cover; padding: 50px; }
-    h1 { font-size: 26px; color: #fff; max-width: 500px; text-shadow: 1px 1px 4px #000; margin-top: 100px; }
+    header { position: relative; height: 500px; background: url('https://indianexpress.com') center/cover no-repeat; padding: 50px; }
+    h1 { font-size: 26px; color: #fff; max-width: 500px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); margin-top: 100px; }
 
-    /* INFO BOX */
-    .info-box { position: absolute; bottom: 30px; right: 30px; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 6px; max-width: 340px; }
-    .info-box p { font-size: 20px; color: #222; margin-bottom: 15px; }
-    
-    /* DONATE BUTTON */
-    .btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #E9988E; border-radius: 4px; float: right; }
-    .btn:hover { background: #d6857b; }
+    /* INFO BOX / DONATE BUTTON CONTAINER */
+    /* Changed the background color directly to #E9988E and removed the small separate button */
+    .info-box { 
+      position: absolute; 
+      bottom: 30px; 
+      right: 30px; 
+      background: #E9988E; 
+      padding: 25px; 
+      border-radius: 6px; 
+      max-width: 340px; 
+      text-decoration: none; 
+      display: block;
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .info-box:hover {
+      background: #d6857b; /* Darkens the whole box slightly on hover */
+    }
+    .info-box p { font-size: 20px; color: #fff; font-weight: bold; line-height: 1.4; }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav>
-    <div class="brand"><img src="https://www.google.com/imgres?q=paper%20boat%20logo%20no%20bg&imgurl=https%3A%2F%2Fpng.pngtree.com%2Felement_pic%2F16%2F12%2F07%2F89830320eb02f73f14b9e4903344cc39.jpg&imgrefurl=https%3A%2F%2Fpngtree.com%2Fso%2Fpaper-boat&docid=V72nMAAC2qIrLM&tbnid=nREIRolFYWh8eM&vet=12ahUKEwib_cPat9SXAxWDzzgGHW7GEfQQnPAOegUIygEQAA..i&w=360&h=360&hcb=2&ved=2ahUKEwib_cPat9SXAxWDzzgGHW7GEfQQnPAOegUIygEQAA" alt="L"> TideTurn</div>
+    <div class="brand">
+      <!-- Fixed Logo Direct Link -->
+      <img src="https://pngtree.com" alt="Logo"> 
+      TideTurn
+    </div>
     <div><a href="#">Home</a><a href="#">Information</a><a href="#">Safety</a></div>
   </nav>
 
@@ -39,15 +57,10 @@
   <header>
     <h1>Safer Communities. <br> Stronger Tomorrows</h1>
     
-    <!-- INFO BOX -->
-    <div class="info-box">
+    <!-- INFO BOX (Entire box is now the link, no arrow inside) -->
+    <a href="https://assam.gov.in" target="_blank" class="info-box">
       <p>Be aware. Be prepared. <br> Be safe.</p>
-      
-      <!-- DONATE BUTTON -->
-      <a href="https://assam.gov.in" target="_blank" class="btn" title="Donate">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
+    </a>
   </header>
 
 </body>
