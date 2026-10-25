@@ -1,9 +1,7 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Assam Relief Page</title>
-  <!-- Fixed Google Fonts Link -->
   <link href="https://googleapis.com" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; font-family: 'Varela Round', sans-serif; }
@@ -12,33 +10,21 @@
     /* NAVBAR */
     nav { display: flex; justify-content: space-between; align-items: center; background: #264F8E; padding: 15px 30px; }
     .brand { display: flex; align-items: center; gap: 15px; color: #fff; font-weight: bold; font-size: 1.3rem; }
-    .brand img { height: 40px; width: auto; object-fit: contain; } /* Added layout rules to make logo show nicely */
-    nav a { text-decoration: none; color: #fff; margin-left: 25px; transition: 0.2s; }
+    .brand img { height: 35px; width: auto; } 
+    nav a { text-decoration: none; color: #fff; margin-left: 35px; font-size: 1rem; transition: 0.2s; }
     nav a:hover { color: #90BEB3; }
 
     /* BANNER */
-    header { position: relative; height: 500px; background: url('https://indianexpress.com') center/cover no-repeat; padding: 50px; }
+    header { position: relative; height: 500px; background: url('https://unsplash.com') center/cover no-repeat; padding: 50px; }
     h1 { font-size: 26px; color: #fff; max-width: 500px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); margin-top: 100px; }
 
-    /* INFO BOX / DONATE BUTTON CONTAINER */
-    /* Changed the background color directly to #E9988E and removed the small separate button */
-    .info-box { 
-      position: absolute; 
-      bottom: 30px; 
-      right: 30px; 
-      background: #E9988E; 
-      padding: 25px; 
-      border-radius: 6px; 
-      max-width: 340px; 
-      text-decoration: none; 
-      display: block;
-      transition: background 0.2s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .info-box:hover {
-      background: #d6857b; /* Darkens the whole box slightly on hover */
-    }
-    .info-box p { font-size: 20px; color: #fff; font-weight: bold; line-height: 1.4; }
+    /* INFO BOX */
+    .info-box { position: absolute; bottom: 30px; right: 30px; background: #E9988E; padding: 15px 20px; border-radius: 6px; max-width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+    .info-box p { font-size: 20px; color: #fff; line-height: 1.4; margin-bottom: 12px; }
+    
+    /* DONATE BUTTON */
+    .btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #ffffff; border-radius: 4px; float: right; text-decoration: none; }
+    .btn:hover { background: #f0f0f0; }
   </style>
 </head>
 <body>
@@ -46,8 +32,7 @@
   <!-- NAVBAR -->
   <nav>
     <div class="brand">
-      <!-- Fixed Logo Direct Link -->
-      <img src="https://pngtree.com" alt="Logo"> 
+      <img src="https://iconify.design" alt="Logo"> 
       TideTurn
     </div>
     <div><a href="#">Home</a><a href="#">Information</a><a href="#">Safety</a></div>
@@ -57,10 +42,15 @@
   <header>
     <h1>Safer Communities. <br> Stronger Tomorrows</h1>
     
-    <!-- INFO BOX (Entire box is now the link, no arrow inside) -->
-    <a href="https://assam.gov.in" target="_blank" class="info-box">
+    <!-- INFO BOX -->
+    <div class="info-box">
       <p>Be aware. Be prepared. <br> Be safe.</p>
-    </a>
+      
+      <!-- DONATE BUTTON -->
+      <a href="https://assam.gov.in" target="_blank" class="btn" title="Donate">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E9988E" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </header>
 
 </body>
