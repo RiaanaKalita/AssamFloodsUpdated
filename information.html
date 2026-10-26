@@ -1,21 +1,26 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TideTurn | Information</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#E4F4F4;font-family:'Varela Round',sans-serif}
-nav{min-height:78px;background:#264F8E;display:flex;align-items:center;padding:10px 20px;gap:15px}
-nav img{width:75px;height:65px;object-fit:contain}
+html,body{margin:0;min-height:100%;background:#E4F4F4}
+body{font-family:'Varela Round',sans-serif}
+nav{width:100%;min-height:78px;background:#264F8E;display:flex;align-items:center;padding:10px 20px;gap:15px}
+nav img{width:75px;height:65px;object-fit:contain;flex-shrink:0}
 .brand{font-size:26px;font-weight:bold;color:white;white-space:nowrap}
-.links{display:flex;align-items:center;justify-content:space-around;flex:1;gap:5px}
-.links a{color:white;text-decoration:none;font-size:16px;font-weight:bold;padding:12px;border-radius:9px;white-space:nowrap}
+.links{display:flex;align-items:center;justify-content:space-evenly;flex:1;gap:5px}
+.links a{color:white;text-decoration:none;font-size:16px;font-weight:bold;padding:12px 24px;border-radius:9px;white-space:nowrap}
 .links a:hover,.links .active{background:#A9DDF5;color:#264F8E}
-.links .donate{background:#E9988E;color:#183D68}
-@media(max-width:600px){nav{gap:5px;padding:8px}.brand{font-size:18px}nav img{width:45px;height:45px}.links a{font-size:11px;padding:7px 4px}}
+@media(max-width:600px){
+nav{gap:5px;padding:8px}
+nav img{width:45px;height:45px}
+.brand{font-size:18px}
+.links a{font-size:11px;padding:7px 4px}
+}
 </style>
 </head>
 <body>
@@ -26,7 +31,6 @@ nav img{width:75px;height:65px;object-fit:contain}
 <a href="index.html">Home</a>
 <a class="active" href="information.html">Information</a>
 <a href="safety.html">Safety</a>
-<a class="donate" href="#donate">Donate</a>
 </div>
 </nav>
 </body>
