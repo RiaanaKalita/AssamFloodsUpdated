@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,25 +6,77 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TideTurn | Information</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:#E4F4F4}
 body{font-family:'Varela Round',sans-serif}
+
 nav{width:100%;min-height:78px;background:#264F8E;display:flex;align-items:center;padding:10px 20px;gap:15px}
 nav img{width:75px;height:65px;object-fit:contain;flex-shrink:0}
 .brand{font-size:26px;font-weight:bold;color:white;white-space:nowrap}
 .links{display:flex;align-items:center;justify-content:space-evenly;flex:1;gap:5px}
 .links a{color:white;text-decoration:none;font-size:16px;font-weight:bold;padding:12px 24px;border-radius:9px;white-space:nowrap}
 .links a:hover,.links .active{background:#A9DDF5;color:#264F8E}
+
+.info-layout{
+display:grid;
+grid-template-columns:380px minmax(0,1fr);
+gap:35px;
+align-items:start;
+padding:20px;
+}
+
+.quiz{
+width:100%;
+padding:22px;
+background:#D4EBF0;
+color:#183D68;
+border-radius:14px;
+box-shadow:0 3px 10px #183D6820;
+}
+.quiz h2{margin:0 0 8px}
+.progress{font-size:13px;margin-bottom:18px}
+.question{font-size:17px;font-weight:bold;margin-bottom:16px}
+.option{display:block;background:white;padding:11px;margin:9px 0;border-radius:8px;cursor:pointer}
+.option:has(input:checked){background:#A9DDF5}
+.quiz button{background:#E9988E;color:#183D68;border:0;border-radius:8px;padding:10px 18px;font-weight:bold;cursor:pointer;margin-top:12px}
+.quiz button:disabled{opacity:.5;cursor:not-allowed}
+#result{font-weight:bold;line-height:1.6}
+
+.info-section{
+margin-top:10px;
+margin-right:20px;
+text-align:right;
+}
+.info-section h2{margin:0 0 10px}
+.info-section .research{
+display:inline-block;
+background:#E9988E;
+color:white;
+border-radius:15px;
+padding:20px;
+text-align:left;
+}
+
+@media(max-width:750px){
+.info-layout{grid-template-columns:1fr}
+.quiz{max-width:400px}
+.info-section{margin-right:0}
+}
+
 @media(max-width:600px){
 nav{gap:5px;padding:8px}
 nav img{width:45px;height:45px}
 .brand{font-size:18px}
 .links a{font-size:11px;padding:7px 4px}
 }
+
 </style>
 </head>
+
 <body>
+
 <nav>
 <img src="Logo.png" alt="TideTurn logo">
 <span class="brand">TideTurn</span>
@@ -33,148 +86,128 @@ nav img{width:45px;height:45px}
 <a href="safety.html">Safety</a>
 </div>
 </nav>
- <style>
-.quiz {
-  width: 360px;
-  margin: 20px;
-  padding: 22px;
-  background: #D4EBF0;
-  color: #183D68;
-  border-radius: 14px;
-  box-shadow: 0 3px 10px #183D6820;
-}
-.quiz h2 { margin: 0 0 8px; }
-.progress { font-size: 13px; margin-bottom: 18px; }
-.question { font-size: 17px; font-weight: bold; margin-bottom: 16px; }
-.option {
-  display: block;
-  background: white;
-  padding: 11px;
-  margin: 9px 0;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.option:has(input:checked) {
-  background: #A9DDF5;
-}
-.quiz button { margin: 12px 5px 0 0; }
-.quiz button:disabled { opacity: 0.5; cursor: not-allowed; }
-#result { font-weight: bold; line-height: 1.6; }
-</style>
+
+<div class="info-layout">
 
 <div class="quiz">
-  <h2>🌊 Flood Awareness Quiz</h2>
-  <p>Test your knowledge and stay prepared.</p>
+<h2>🌊 Flood Awareness Quiz</h2>
+<p>Test your knowledge and stay prepared.</p>
 
-  <div id="questionArea">
-    <p class="progress" id="progress"></p>
-    <p class="question" id="question"></p>
-    <div id="options"></div>
-    <p id="feedback" aria-live="polite"></p>
-    <button class="btn" id="next" type="button" disabled>Submit Answer</button>
-  </div>
+<div id="questionArea">
+<p class="progress" id="progress"></p>
+<p class="question" id="question"></p>
+<div id="options"></div>
+<p id="feedback" aria-live="polite"></p>
+<button id="next" type="button" disabled>Submit Answer</button>
+</div>
 
-  <div id="resultArea" hidden>
-    <h3>Quiz Completed!</h3>
-    <p id="result" aria-live="polite"></p>
-    <button class="btn" onclick="restartQuiz()">Try Again</button>
-  </div>
+<div id="resultArea" hidden>
+<h3>Quiz Completed!</h3>
+<p id="result" aria-live="polite"></p>
+<button type="button" onclick="restartQuiz()">Try Again</button>
+</div>
+</div>
+
+<div class="info-section">
+<h2>Heading of the Section</h2>
+<div class="research">Add the research here</div>
+</div>
+
+</div>
+
+<div style="position:fixed;bottom:20px;left:40px;text-align:left;margin-bottom:0;z-index:9999;">
+<h2 style="margin:0 0 15px;">Heading of section 2 here</h2>
+<div style="display:inline-block;background-color:#A4B894;color:white;border-radius:15px;padding:20px;">
+Add the research here
+</div>
 </div>
 
 <script>
 const questions = [
-  {
-    q: "What should you do when a flood warning is issued?",
-    options: ["Ignore it", "Follow official safety instructions", "Go near the river"],
-    answer: 1
-  },
-  {
-    q: "What should you do if floodwater blocks a road?",
-    options: ["Walk through it", "Drive through it", "Find a safer route"],
-    answer: 2
-  },
-  {
-    q: "Which item belongs in an emergency kit?",
-    options: ["Drinking water", "Glass decorations", "Unnecessary toys"],
-    answer: 0
-  },
-  {
-    q: "Where should you get reliable flood updates?",
-    options: ["Online rumours", "Official weather and emergency alerts", "Unverified messages"],
-    answer: 1
-  },
-  {
-    q: "What should you do if authorities order an evacuation?",
-    options: ["Stay and watch", "Wait for water to enter", "Follow evacuation instructions promptly"],
-    answer: 2
-  }
+{
+q:"What should you do when a flood warning is issued?",
+options:["Ignore it","Follow official safety instructions","Go near the river"],
+answer:1
+},
+{
+q:"What should you do if floodwater blocks a road?",
+options:["Walk through it","Drive through it","Find a safer route"],
+answer:2
+},
+{
+q:"Which item belongs in an emergency kit?",
+options:["Drinking water","Glass decorations","Unnecessary toys"],
+answer:0
+},
+{
+q:"Where should you get reliable flood updates?",
+options:["Online rumours","Official weather and emergency alerts","Unverified messages"],
+answer:1
+},
+{
+q:"What should you do if authorities order an evacuation?",
+options:["Stay and watch","Wait for water to enter","Follow evacuation instructions promptly"],
+answer:2
+}
 ];
 
-let current = 0;
-let score = 0;
+let current=0;
+let score=0;
 
-function showQuestion() {
-  document.getElementById("progress").textContent =
-    "QUESTION " + (current + 1) + " OF " + questions.length;
+function showQuestion(){
+document.getElementById("progress").textContent=
+"QUESTION "+(current+1)+" OF "+questions.length;
 
-  document.getElementById("question").textContent =
-    questions[current].q;
+document.getElementById("question").textContent=
+questions[current].q;
 
-  document.getElementById("options").innerHTML =
-    questions[current].options.map((option, i) =>
-      '<label class="option"><input type="radio" name="answer" value="' +
-      i + '"> ' + option + '</label>'
-    ).join("");
+document.getElementById("options").innerHTML=
+questions[current].options.map((option,i)=>
+'<label class="option"><input type="radio" name="answer" value="'+i+'"> '+option+'</label>'
+).join("");
 
-  document.getElementById("feedback").textContent = "";
-  document.getElementById("next").disabled = true;
-  document.getElementById("next").textContent =
-    current === questions.length - 1 ? "View Results" : "Submit Answer";
+document.getElementById("feedback").textContent="";
+document.getElementById("next").disabled=true;
+document.getElementById("next").textContent=
+current===questions.length-1?"View Results":"Submit Answer";
 
-  document.querySelectorAll('input[name="answer"]').forEach(input => {
-    input.addEventListener("change", () => {
-      document.getElementById("next").disabled = false;
-    });
-  });
-}
-document.getElementById("next").addEventListener("click", function() {
-  const selected = document.querySelector('input[name="answer"]:checked');
-
-  if (!selected) return;
-
-  if (Number(selected.value) === questions[current].answer) {
-    score++;
-  }
-
-  current++;
-
-  if (current < questions.length) {
-    showQuestion();
-  } else {
-    document.getElementById("questionArea").hidden = true;
-    document.getElementById("resultArea").hidden = false;
-    document.getElementById("result").textContent =
-      "You scored " + score + " out of " + questions.length + "!";
-  }
+document.querySelectorAll('input[name="answer"]').forEach(input=>{
+input.addEventListener("change",()=>{
+document.getElementById("next").disabled=false;
 });
-function restartQuiz() {
-  current = 0;
-  score = 0;
-  document.getElementById("questionArea").hidden = false;
-  document.getElementById("resultArea").hidden = true;
-  showQuestion();
-}showQuestion();
-</script>
- <div style="margin-top: 10px;margin-right: 40px; text-align: right; margin-bottom: 35px;">
-    <h2 style="margin: 0 0 10px 0;">Heading of the Section</h2>
-    <div style="display: inline-block; background-color: #E9988E; color: white; border-radius: 15px; padding: 20px; text-align: left;">
-        Add the research here
-    </div>
-</div>
+});
+}
 
-<div style="position: fixed; bottom: 20px; left: 40px; text-align: left; margin-bottom: 0px; z-index: 9999;"> 
-  <h2 style="margin: 0 0 15px 0;">Heading of section 2 here</h2> 
-  <div style="display: inline-block; background-color: #A4B894; color: white; border-radius: 15px; padding: 20px; margin-bottom: 0px;"> Add the research here </div> 
-</div> 
-</body> 
+document.getElementById("next").addEventListener("click",function(){
+const selected=document.querySelector('input[name="answer"]:checked');
+if(!selected)return;
+
+if(Number(selected.value)===questions[current].answer){
+score++;
+}
+
+current++;
+
+if(current<questions.length){
+showQuestion();
+}else{
+document.getElementById("questionArea").hidden=true;
+document.getElementById("resultArea").hidden=false;
+document.getElementById("result").textContent=
+"You scored "+score+" out of "+questions.length+"!";
+}
+});
+
+function restartQuiz(){
+current=0;
+score=0;
+document.getElementById("questionArea").hidden=false;
+document.getElementById("resultArea").hidden=true;
+showQuestion();
+}
+
+showQuestion();
+</script>
+
+</body>
 </html>
