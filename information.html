@@ -35,70 +35,135 @@ nav img{width:45px;height:45px}
 </nav>
  <style>
 .quiz {
-  width: 350px;
+  width: 360px;
   margin: 20px;
-  padding: 18px;
+  padding: 22px;
   background: #D4EBF0;
   color: #183D68;
-  border-radius: 12px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px #183D6820;
 }
-.quiz h2 { margin-top: 0; }
-.quiz p { margin-bottom: 6px; }
-.quiz button { margin-top: 12px; }
-#result { font-weight: bold; }
+.quiz h2 { margin: 0 0 8px; }
+.progress { font-size: 13px; margin-bottom: 18px; }
+.question { font-size: 17px; font-weight: bold; margin-bottom: 16px; }
+.option {
+  display: block;
+  background: white;
+  padding: 11px;
+  margin: 9px 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.option:has(input:checked) {
+  background: #A9DDF5;
+}
+.quiz button { margin: 12px 5px 0 0; }
+.quiz button:disabled { opacity: 0.5; cursor: not-allowed; }
+#result { font-weight: bold; line-height: 1.6; }
 </style>
 
 <div class="quiz">
-<h2>🌊 Flood Awareness Quiz</h2>
-<p>Test your knowledge!</p>
+  <h2>🌊 Flood Awareness Quiz</h2>
+  <p>Test your knowledge and stay prepared.</p>
 
-<form id="quizForm">
-<p>1. What should you do when a flood warning is issued?</p>
-<label><input type="radio" name="q1" value="a"> Ignore it</label><br>
-<label><input type="radio" name="q1" value="b"> Follow official safety instructions</label><br>
-<label><input type="radio" name="q1" value="c"> Go near the river</label>
+  <div id="questionArea">
+    <p class="progress" id="progress"></p>
+    <p class="question" id="question"></p>
+    <div id="options"></div>
+    <p id="feedback" aria-live="polite"></p>
+    <button class="btn" id="next" type="button" disabled>Submit Answer</button>
+  </div>
 
-<p>2. What should you do if floodwater blocks a road?</p>
-<label><input type="radio" name="q2" value="a"> Walk through it</label><br>
-<label><input type="radio" name="q2" value="b"> Drive through it</label><br>
-<label><input type="radio" name="q2" value="c"> Find a safer route</label>
-
-<p>3. Which item belongs in an emergency kit?</p>
-<label><input type="radio" name="q3" value="a"> Drinking water</label><br>
-<label><input type="radio" name="q3" value="b"> Glass decorations</label><br>
-<label><input type="radio" name="q3" value="c"> Unnecessary toys</label>
-
-<p>4. Where should you get reliable flood updates?</p>
-<label><input type="radio" name="q4" value="a"> Random online rumours</label><br>
-<label><input type="radio" name="q4" value="b"> Official weather and emergency alerts</label><br>
-<label><input type="radio" name="q4" value="c"> Unverified messages</label>
-
-<p>5. What should you do if your area is ordered to evacuate?</p>
-<label><input type="radio" name="q5" value="a"> Stay to watch the flood</label><br>
-<label><input type="radio" name="q5" value="b"> Wait until water reaches your home</label><br>
-<label><input type="radio" name="q5" value="c"> Follow evacuation instructions promptly</label><br>
-
-<button class="btn" type="submit">Check Answers</button>
-<p id="result" aria-live="polite"></p>
-</form>
+  <div id="resultArea" hidden>
+    <h3>Quiz Completed!</h3>
+    <p id="result" aria-live="polite"></p>
+    <button class="btn" onclick="restartQuiz()">Try Again</button>
+  </div>
 </div>
 
 <script>
-document.getElementById("quizForm").onsubmit = function(e) {
-  e.preventDefault();
-  let answers = ["b", "c", "a", "b", "c"];
-  let score = 0;
+const questions = [
+  {
+    q: "What should you do when a flood warning is issued?",
+    options: ["Ignore it", "Follow official safety instructions", "Go near the river"],
+    answer: 1
+  },
+  {
+    q: "What should you do if floodwater blocks a road?",
+    options: ["Walk through it", "Drive through it", "Find a safer route"],
+    answer: 2
+  },
+  {
+    q: "Which item belongs in an emergency kit?",
+    options: ["Drinking water", "Glass decorations", "Unnecessary toys"],
+    answer: 0
+  },
+  {
+    q: "Where should you get reliable flood updates?",
+    options: ["Online rumours", "Official weather and emergency alerts", "Unverified messages"],
+    answer: 1
+  },
+  {
+    q: "What should you do if authorities order an evacuation?",
+    options: ["Stay and watch", "Wait for water to enter", "Follow evacuation instructions promptly"],
+    answer: 2
+  }
+];
 
-  answers.forEach((answer, i) => {
-    let chosen = document.querySelector(
-      'input[name="q' + (i + 1) + '"]:checked'
-    );
-    if (chosen && chosen.value === answer) score++;
+let current = 0;
+let score = 0;
+
+function showQuestion() {
+  document.getElementById("progress").textContent =
+    "QUESTION " + (current + 1) + " OF " + questions.length;
+
+  document.getElementById("question").textContent =
+    questions[current].q;
+
+  document.getElementById("options").innerHTML =
+    questions[current].options.map((option, i) =>
+      '<label class="option"><input type="radio" name="answer" value="' +
+      i + '"> ' + option + '</label>'
+    ).join("");
+
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("next").disabled = true;
+  document.getElementById("next").textContent =
+    current === questions.length - 1 ? "View Results" : "Submit Answer";
+
+  document.querySelectorAll('input[name="answer"]').forEach(input => {
+    input.addEventListener("change", () => {
+      document.getElementById("next").disabled = false;
+    });
   });
+}
+document.getElementById("next").addEventListener("click", function() {
+  const selected = document.querySelector('input[name="answer"]:checked');
 
-  document.getElementById("result").textContent =
-    "You scored " + score + " out of 5!";
-};
+  if (!selected) return;
+
+  if (Number(selected.value) === questions[current].answer) {
+    score++;
+  }
+
+  current++;
+
+  if (current < questions.length) {
+    showQuestion();
+  } else {
+    document.getElementById("questionArea").hidden = true;
+    document.getElementById("resultArea").hidden = false;
+    document.getElementById("result").textContent =
+      "You scored " + score + " out of " + questions.length + "!";
+  }
+});
+function restartQuiz() {
+  current = 0;
+  score = 0;
+  document.getElementById("questionArea").hidden = false;
+  document.getElementById("resultArea").hidden = true;
+  showQuestion();
+}showQuestion();
 </script>
  <div style="margin-top: 10px;margin-right: 40px; text-align: right; margin-bottom: 35px;">
     <h2 style="margin: 0 0 10px 0;">Heading of the Section</h2>
