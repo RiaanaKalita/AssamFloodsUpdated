@@ -208,6 +208,34 @@ showQuestion();
 
 showQuestion();
 </script>
+<style>
+.flood-gallery{padding:30px 5%;background:#E4F4F4;color:#183D68;font-family:'Varela Round',sans-serif}
+.flood-gallery h2{text-align:center;margin-bottom:22px}
+.flood-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px;margin:auto}
+.flood-card{background:white;padding:10px;border-radius:16px;text-align:center;box-shadow:0 3px 10px #183d6820}
+.flood-card img{width:100%;height:220px;object-fit:cover;display:block}
+.flood-card:nth-child(1) img,.flood-card:nth-child(3) img{width:220px;height:220px;border-radius:50%;margin:auto}
+.flood-card:nth-child(2) img,.flood-card:nth-child(4) img{border-radius:16px}
+.flood-card p{font-weight:bold;margin:12px 0 4px}
+@media(max-width:650px){.flood-grid{grid-template-columns:1fr}}
+</style>
 
+<section class="flood-gallery">
+<h2>Understanding the Impact of Floods</h2>
+<div class="flood-grid">
+<div class="flood-card">
+<img src="https://ichef.bbci.co.uk/news/1536/cpsprodpb/14572/production/_125541338_floodassam.jpg.webp" alt="Rescue efforts">
+<p>Rescue Efforts</p></div>
+<div class="flood-card">
+<img src="https://c.ndtvimg.com/2026-07/6r1mrotg_assam-floods_625x300_24_July_26.jpeg?im=FaceCrop,algorithm=dnn,width=773,height=435" alt="Floods in Assam">
+<p>Floods in Assam</p></div>
+<div class="flood-card">
+<img src="https://cf-images.assettype.com/downtoearth%2F2026-08-30%2Fz5syd2p3%2FAssam-Floods.jpg?w=1200&auto=format%2Ccompress&fit=max" alt="Destroyed property">
+<p>Destroyed Property</p></div>
+<div class="flood-card">
+<img src="https://cms.thewire.in/wp-content/uploads/2026/08/Screenshot-2026-08-05-at-2.00.26-PM.png" alt="Flood impact">
+<p>Impact of Floods</p></div>
+</div>
+</section>
 </body>
 </html>
