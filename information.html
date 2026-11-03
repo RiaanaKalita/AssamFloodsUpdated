@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,20 +20,13 @@ nav img{width:75px;height:65px;object-fit:contain;flex-shrink:0}
 
 .info-layout{
 display:grid;
-grid-template-columns:380px minmax(0,1fr);
-gap:35px;
+grid-template-columns:380px minmax(220px,1fr) minmax(280px,1fr);
+gap:25px;
 align-items:start;
 padding:20px;
 }
 
-.quiz{
-width:100%;
-padding:22px;
-background:#D4EBF0;
-color:#183D68;
-border-radius:14px;
-box-shadow:0 3px 10px #183D6820;
-}
+.quiz{width:100%;padding:22px;background:#D4EBF0;color:#183D68;border-radius:14px;box-shadow:0 3px 10px #183D6820}
 .quiz h2{margin:0 0 8px}
 .progress{font-size:13px;margin-bottom:18px}
 .question{font-size:17px;font-weight:bold;margin-bottom:16px}
@@ -44,34 +36,43 @@ box-shadow:0 3px 10px #183D6820;
 .quiz button:disabled{opacity:.5;cursor:not-allowed}
 #result{font-weight:bold;line-height:1.6}
 
-.info-section{
-margin-top:10px;
-margin-right:20px;
-text-align:right;
-}
+.info-section{margin-top:10px;margin-right:20px;text-align:right}
 .info-section h2{margin:0 0 10px}
-.info-section .research{
-display:inline-block;
-background:#E9988E;
-color:white;
-border-radius:15px;
-padding:20px;
-text-align:left;
-}
+.info-section .research{display:inline-block;background:#E9988E;color:white;border-radius:15px;padding:20px;text-align:left}
 
-@media(max-width:750px){
-.info-layout{grid-template-columns:1fr}
-.quiz{max-width:400px}
-.info-section{margin-right:0}
-}
+.pie-area,.rescue-area{text-align:center;margin-top:15px}
+.pie-area img{width:100%;height:220px;object-fit:contain}
+.rescue-area img{width:100%;height:190px;object-fit:cover;border-radius:16px}
 
+.section-two{margin-top:0;text-align:left}
+.section-two h2{margin:0 0 15px}
+.section-two .research{display:inline-block;background:#A4B894;color:white;border-radius:15px;padding:20px}
+
+.lower-images{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.image-card{background:white;padding:10px;border-radius:18px;text-align:center;box-shadow:0 3px 10px #183d6820;min-width:0}
+.image-card img{width:100%;height:180px;object-fit:cover;border-radius:16px;display:block}
+.image-card p{font-weight:bold;margin:10px 0 2px}
+.graph{margin-top:20px}
+.graph img{height:230px;object-fit:contain;background:white}
+
+@media(max-width:950px){
+.info-layout{grid-template-columns:1fr 1fr}
+.quiz{grid-column:1}
+.pie-area{grid-column:2}
+.info-section{grid-column:2;grid-row:2}
+.section-two{grid-column:1;grid-row:2}
+.rescue-area{grid-column:2}
+.lower-images{grid-column:1 / -1}
+}
 @media(max-width:600px){
 nav{gap:5px;padding:8px}
 nav img{width:45px;height:45px}
 .brand{font-size:18px}
 .links a{font-size:11px;padding:7px 4px}
+.info-layout{grid-template-columns:1fr}
+.quiz,.pie-area,.info-section,.section-two,.rescue-area,.lower-images{grid-column:1;grid-row:auto}
+.lower-images{grid-template-columns:1fr}
 }
-
 </style>
 </head>
 
@@ -108,18 +109,43 @@ nav img{width:45px;height:45px}
 </div>
 </div>
 
+<div>
+<div class="pie-area">
+<img src="https://www.researchgate.net/publication/348577571/figure/fig5/AS:981574921224226@1611037106471/Year-wise-loss-of-property-Rs-in-Crore-in-Assam-due-to-flood-and-erosion-Source.png" alt="Value of Property pie chart">
+</div>
+
+<div class="rescue-area">
+<img src="https://ichef.bbci.co.uk/news/1536/cpsprodpb/14572/production/_125541338_floodassam.jpg.webp" alt="Rescue efforts during Assam floods">
+</div>
+</div>
+
 <div class="info-section">
 <h2>Heading of the Section</h2>
 <div class="research">Add the research here</div>
 </div>
 
+<div class="section-two">
+<h2>Heading of section 2 here</h2>
+<div class="research">Add the research here</div>
 </div>
 
-<div style="position:fixed;bottom:20px;left:40px;text-align:left;margin-bottom:0;z-index:9999;">
-<h2 style="margin:0 0 15px;">Heading of section 2 here</h2>
-<div style="display:inline-block;background-color:#A4B894;color:white;border-radius:15px;padding:20px;">
-Add the research here
+<div class="lower-images">
+<div class="image-card">
+<img src="https://c.ndtvimg.com/2026-07/6r1mrotg_assam-floods_625x300_24_July_26.jpeg?im=FaceCrop,algorithm=dnn,width=773,height=435" alt="Floods in Assam">
+<p>Floods in Assam</p>
 </div>
+
+<div class="image-card">
+<img src="https://cf-images.assettype.com/downtoearth%2F2026-08-30%2Fz5syd2p3%2FAssam-Floods.jpg?w=1200&auto=format%2Ccompress&fit=max" alt="Destroyed property">
+<p>Destroyed Property</p>
+</div>
+</div>
+
+<div class="graph image-card">
+<img src="https://www.researchgate.net/profile/Dimpal-Dekaraja/publication/348577571/figure/fig5/AS:981096887504896@1610990101680/Year-wise-loss-of-property-Rs-in-Crore-in-Assam-due-to-flood-and-erosion-Source.png" alt="Year-wise loss of property in Assam due to floods and erosion">
+<p>Economic Loss in Assam Due to Floods</p>
+</div>
+
 </div>
 
 <script>
@@ -209,6 +235,5 @@ showQuestion();
 showQuestion();
 </script>
 
-</section>
 </body>
 </html>
