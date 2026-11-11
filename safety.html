@@ -1,58 +1,65 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TideTurn | Safety</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#E4F4F4}
-body{font-family:'Varela Round',sans-serif;color:#183D68}
-
+html,body{margin:0;background:#E4F4F4;color:#183D68;font-family:'Varela Round',sans-serif}
 nav{width:100%;min-height:78px;background:#264F8E;display:flex;align-items:center;padding:10px 20px;gap:15px}
 nav img{width:75px;height:65px;object-fit:contain;flex-shrink:0}
 .brand{font-size:26px;font-weight:bold;color:white;white-space:nowrap}
 .links{display:flex;align-items:center;justify-content:space-evenly;flex:1;gap:5px}
 .links a{color:white;text-decoration:none;font-size:16px;font-weight:bold;padding:12px 24px;border-radius:9px;white-space:nowrap}
 .links a:hover,.links .active{background:#A9DDF5;color:#264F8E}
-
-.banner{
-height:300px;
-background:linear-gradient(90deg,#183D68B8,#183D6830),
-url("https://civicdatalab.in/2022-Assam-Flood-Response/Assam_floods.JPG");
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-padding:35px 6%;
-}
-.banner h1{
-color:white;
-font-size:clamp(30px,5vw,52px);
-margin:0;
-text-shadow:0 2px 8px #183D6860;
-}
+.banner{height:300px;background:linear-gradient(90deg,#183D68B8,#183D6830),url("https://civicdatalab.in/2022-Assam-Flood-Response/Assam_floods.JPG") center/cover;display:flex;align-items:center;padding:35px 6%}
+.banner h1{color:white;font-size:clamp(30px,5vw,52px);margin:0}
+.upper{display:grid;grid-template-columns:.85fr 1.5fr;gap:22px;padding:25px 4%}
+.panel{background:#D4EBF0;border-radius:16px;padding:20px;box-shadow:0 3px 10px #183D6820}
+h2{text-align:center;margin:0 0 15px}
+.contacts{max-height:400px;overflow-y:auto}
+.contact{background:white;padding:12px;border-radius:9px;margin:9px 0;display:flex;justify-content:space-between;gap:8px}
+a{color:#264F8E}
+.contact a{font-weight:bold;text-decoration:none}
+iframe{width:100%;border:0;border-radius:10px}
+.hospital iframe{height:350px}
+.note{font-size:13px;line-height:1.5}
 </style>
 </head>
-
 <body>
-
 <nav>
 <img src="Logo.png" alt="TideTurn logo">
 <span class="brand">TideTurn</span>
 <div class="links">
-<a href="index.html">Home</a>
-<a href="information.html">Information</a>
-<a class="active" href="safety.html">Safety</a>
+<a href="index.html">Home</a><a href="information.html">Information</a><a class="active" href="safety.html">Safety</a>
 </div>
 </nav>
+<section class="banner"><h1>Need Help?<br>You’re not alone!</h1></section>
 
-<section class="banner">
-<h1>Need Help?<br>You’re not alone!</h1>
+<section class="upper">
+<div class="panel">
+<h2>Emergency Numbers</h2>
+<div class="contacts">
+<div class="contact"><span>State Disaster Control Room</span><a href="tel:1070">1070</a></div>
+<div class="contact"><span>Disaster Management</span><a href="tel:1079">1079</a></div>
+<div class="contact"><span>District Control Room</span><a href="tel:1077">1077</a></div>
+<div class="contact"><span>Medical Emergency</span><a href="tel:108">108</a></div>
+<div class="contact"><span>National Emergency</span><a href="tel:112">112</a></div>
+<div class="contact"><span>Police</span><a href="tel:100">100</a></div>
+<div class="contact"><span>Women’s Helpline</span><a href="tel:181">181</a></div>
+<div class="contact"><span>Child Helpline</span><a href="tel:1098">1098</a></div>
+</div>
+<p class="note">Tap a number to call from a phone. Use emergency numbers only when help is needed.</p>
+</div>
+
+<div class="panel hospital">
+<h2>Hospital Locator</h2>
+<iframe src="https://www.google.com/maps?q=hospitals&output=embed" title="Google Maps hospital search" loading="lazy"></iframe>
+<p class="note">If the map does not load, <a href="https://www.google.com/maps/search/hospital" target="_blank" rel="noopener">open hospital search in Google Maps</a>.</p>
+</div>
 </section>
-
 </body>
 </html>
