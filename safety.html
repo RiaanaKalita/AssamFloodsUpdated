@@ -55,10 +55,34 @@ iframe{width:100%;border:0;border-radius:10px}
 <p class="note">Tap a number to call from a phone. Use emergency numbers only when help is needed.</p>
 </div>
 
+
 <div class="panel hospital">
 <h2>Hospital Locator</h2>
-<iframe src="https://www.google.com/maps?q=hospitals&output=embed" title="Google Maps hospital search" loading="lazy"></iframe>
-<p class="note">If the map does not load, <a href="https://www.google.com/maps/search/hospital" target="_blank" rel="noopener">open hospital search in Google Maps</a>.</p>
+<form action="https://www.google.com/maps/search/" method="get" target="_blank">
+<input
+type="text"
+name="api"
+value="1"
+hidden>
+<input
+type="text"
+name="query"
+placeholder="Search hospitals or enter a district..."
+required
+style="width:100%;padding:13px;border:1px solid #A9DDF5;border-radius:9px;font-family:inherit;margin-bottom:10px">
+<button type="submit"
+style="background:#264F8E;color:white;padding:11px 20px;border:0;border-radius:8px;font-family:inherit;font-weight:bold;cursor:pointer">
+Search Hospitals
+</button>
+</form>
+<iframe
+src="https://www.google.com/maps?q=hospitals&output=embed"
+title="Google Maps hospital search"
+loading="lazy">
+</iframe>
+<p class="note">
+Search for hospitals by area or state using the search box above.
+</p>
 </div>
 </section>
 </body>
