@@ -20,7 +20,6 @@ nav img{width:75px;height:65px;object-fit:contain;flex-shrink:0}
 .info-layout{
 display:grid;
 grid-template-columns:380px minmax(220px,1fr) minmax(280px,1fr);
-grid-template-rows:auto auto;
 gap:10px 20px;
 align-items:start;
 padding:20px;
@@ -66,8 +65,7 @@ text-align:left;
 .rescue-area p{font-weight:bold;margin:6px 0 0;color:#183D68}
 
 .section-two{
-grid-column:1;
-grid-row:2;
+margin-top:20px;
 text-align:left;
 }
 .section-two h2{margin:0 0 15px}
@@ -80,13 +78,11 @@ padding:20px;
 }
 
 .lower-images{
-grid-column:2;
-grid-row:1 / 3;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:10px;
 align-items:start;
-margin-top:-10px;
+margin-top:10px;
 }
 
 .image-card{
@@ -107,9 +103,7 @@ display:block;
 .image-card p{font-weight:bold;margin:6px 0 2px}
 
 .graph{
-grid-column:3;
-grid-row:2;
-margin-top:-10px;
+margin-top:20px;
 }
 .graph img{
 height:200px;
@@ -119,13 +113,6 @@ background:white;
 
 @media(max-width:950px){
 .info-layout{grid-template-columns:1fr 1fr}
-.quiz{grid-column:1;grid-row:1}
-.pie-area{grid-column:2;grid-row:1}
-.info-section{grid-column:2;grid-row:2}
-.section-two{grid-column:1;grid-row:2}
-.rescue-area{grid-column:2;grid-row:3}
-.lower-images{grid-column:1;grid-row:3}
-.graph{grid-column:1 / -1;grid-row:4}
 }
 
 @media(max-width:600px){
@@ -134,10 +121,6 @@ nav img{width:45px;height:45px}
 .brand{font-size:18px}
 .links a{font-size:11px;padding:7px 4px}
 .info-layout{grid-template-columns:1fr}
-.quiz,.pie-area,.info-section,.section-two,.rescue-area,.lower-images,.graph{
-grid-column:1;
-grid-row:auto;
-}
 .lower-images{grid-template-columns:1fr}
 }
 </style>
@@ -153,6 +136,7 @@ grid-row:auto;
 </div>
 </nav>
 <div class="info-layout">
+
 <div>
 <div class="quiz">
 <h2>🌊 Flood Awareness Quiz</h2>
@@ -175,6 +159,7 @@ grid-row:auto;
 <div class="research">Floods can displace families, destroy homes, damage agricultural land and interrupt access to schools, healthcare and clean drinking water. Their effects often continue long after the water recedes, as communities struggle to rebuild their homes and livelihoods. The scale of the impact was evident in 2024, when approximately 42.96 lakh people across 7,794 villages were affected by floods in Assam. Around 49,580 hectares of crop area were also affected, threatening agricultural livelihoods. The situation remained severe in 2026, when the flood-related death toll reached 105 people by 18 August, according to figures from the Assam State Disaster Management Authority (ASDMA). These statistics highlight the devastating human and economic consequences of flooding and the importance of rescue operations, emergency relief and long-term recovery support.</div>
 </div>
 </div>
+
 <div>
 <div class="pie-area">
 <img src="https://www.researchgate.net/publication/348577571/figure/fig5/AS:981574921224226@1611037106471/Year-wise-loss-of-property-Rs-in-Crore-in-Assam-due-to-flood-and-erosion-Source.png" alt="Value of Property pie chart">
@@ -182,11 +167,6 @@ grid-row:auto;
 <div class="rescue-area">
 <img src="https://ichef.bbci.co.uk/news/1536/cpsprodpb/14572/production/_125541338_floodassam.jpg.webp" alt="Rescue efforts during Assam floods">
 <p>Rescue Efforts</p>
-</div>
-</div>
-<div class="info-section">
-<h2>Why Does Assam Experience Heavy Flooding?</h2>
-<div class="research">Assam receives intense rainfall during the South-West Monsoon, particularly between May and September. According to the Assam Water Resources Department, approximately 85% of the Brahmaputra basin's annual rainfall occurs during these months, causing rivers and their tributaries to rise. The Brahmaputra and Barak river systems receive water from numerous tributaries, including rivers flowing down from the Himalayas. When heavy rainfall occurs across several river catchments at once, these tributaries can swell together, increasing water levels and the risk of flooding. In July 2024, the Brahmaputra at Neamatighat reached a new recorded highest flood level of 87.47 metres, exceeding its previous record of 87.37 metres from 1991. These factors make Assam particularly vulnerable to recurring floods during the monsoon season.</div>
 </div>
 <div class="lower-images">
 <div class="image-card">
@@ -198,10 +178,19 @@ grid-row:auto;
 <p>Destroyed Property</p>
 </div>
 </div>
+</div>
+
+<div>
+<div class="info-section">
+<h2>Why Does Assam Experience Heavy Flooding?</h2>
+<div class="research">Assam receives intense rainfall during the South-West Monsoon, particularly between May and September. According to the Assam Water Resources Department, approximately 85% of the Brahmaputra basin's annual rainfall occurs during these months, causing rivers and their tributaries to rise. The Brahmaputra and Barak river systems receive water from numerous tributaries, including rivers flowing down from the Himalayas. When heavy rainfall occurs across several river catchments at once, these tributaries can swell together, increasing water levels and the risk of flooding. In July 2024, the Brahmaputra at Neamatighat reached a new recorded highest flood level of 87.47 metres, exceeding its previous record of 87.37 metres from 1991. These factors make Assam particularly vulnerable to recurring floods during the monsoon season.</div>
+</div>
 <div class="graph image-card">
 <img src="https://www.researchgate.net/publication/348577571/figure/fig4/AS:981574921232411@1611037106410/Year-wise-family-affected-in-Assam-due-flood-and-Riverbank-erosion-Source-Water.png" alt="Year-wise families affected by floods and riverbank erosion in Assam">
 <p>Families Affected by Floods</p>
 </div>
+</div>
+
 </div>
 
 <script>
