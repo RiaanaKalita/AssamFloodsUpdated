@@ -27,7 +27,6 @@ a{color:#264F8E}
 iframe{width:100%;border:0;border-radius:10px}
 .hospital iframe{height:350px}
 .note{font-size:13px;line-height:1.5}
-  
 .lower{
 display:grid;
 grid-template-columns:1fr 1.2fr 1.3fr;
@@ -38,15 +37,21 @@ align-items:start;
 .lower h2{text-align:center;font-size:28px;margin:0 0 12px;color:#183D68}
 .advice h2{text-align:left;margin:15px 0}
 .advice ul{line-height:1.8;padding-left:22px}
+.advice details{background:#D4EBF0;border-radius:10px;padding:12px;margin-bottom:12px}
+.advice summary{cursor:pointer;font-size:17px;color:#183D68}
+.advice details ul{margin-bottom:0}
 .checklist{background:#E9988E;padding:12px 25px;border-radius:22px;margin-bottom:20px}
 .checklist label{display:block;padding:9px 0;border-bottom:2px solid #183D68}
 .checklist input{accent-color:#264F8E}
-.middle iframe{width:100%;aspect-ratio:16/9}.right .map{height:350px;background:white;border:6px solid white;border-radius:30px;}
+.middle iframe{width:100%;aspect-ratio:16/9;margin-bottom:12px}
 .right .map{height:260px;background:white;border:6px solid white;border-radius:30px;}
 .map-full{display:block;text-align:center;background:#264F8E;color:white;padding:11px;margin:10px 0 22px;border-radius:9px;text-decoration:none;font-weight:bold;}
 .map-full:hover{background:#A9DDF5;color:#264F8E}
 .news{background:#A4B894;border:6px solid white;border-radius:8px;padding:8px}
 .news iframe{height:190px}
+.resources{background:#D4EBF0;padding:22px;text-align:center;border-radius:15px;margin:20px 3%}
+.resources a{display:inline-block;background:#264F8E;color:white;padding:12px 25px;border-radius:9px;text-decoration:none;font-weight:bold}
+.resources a:hover{background:#A9DDF5;color:#264F8E}
 @media(max-width:850px){.lower{grid-template-columns:1fr}}
 </style>
 </head>
@@ -58,6 +63,7 @@ align-items:start;
 <a href="index.html">Home</a><a href="information.html">Information</a><a class="active" href="safety.html">Safety</a>
 </div>
 </nav>
+
 <section class="banner"><h1>Need Help?<br>You’re not alone!</h1></section>
 
 <section class="upper">
@@ -76,31 +82,16 @@ align-items:start;
 <p class="note">Tap a number to call from a phone. Use emergency numbers only when help is needed.</p>
 </div>
 
-
 <div class="panel hospital">
 <h2>Hospital Locator</h2>
 <form action="https://www.google.com/maps/search/" method="get" target="_blank">
-<input
-type="text"
-name="api"
-value="1"
-hidden>
-<input
-type="text"
-name="query"
-placeholder="Search hospitals or enter a district..."
-required
-style="width:100%;padding:13px;border:1px solid #A9DDF5;border-radius:9px;font-family:inherit;margin-bottom:10px">
-<button type="submit"
-style="background:#264F8E;color:white;padding:11px 20px;border:0;border-radius:8px;font-family:inherit;font-weight:bold;cursor:pointer">
+<input type="text" name="api" value="1" hidden>
+<input type="text" name="query" placeholder="Search hospitals or enter a district..." required style="width:100%;padding:13px;border:1px solid #A9DDF5;border-radius:9px;font-family:inherit;margin-bottom:10px">
+<button type="submit" style="background:#264F8E;color:white;padding:11px 20px;border:0;border-radius:8px;font-family:inherit;font-weight:bold;cursor:pointer">
 Search Hospitals
 </button>
 </form>
-<iframe
-src="https://www.google.com/maps?q=hospitals&output=embed"
-title="Google Maps hospital search"
-loading="lazy">
-</iframe>
+<iframe src="https://www.google.com/maps?q=hospitals&output=embed" title="Google Maps hospital search" loading="lazy"></iframe>
 <p class="note">
 Search for hospitals by area or state using the search box above. Type as shown: State/specific area hospital for (any specific specialisation needed)
 </p>
@@ -109,13 +100,42 @@ Search for hospitals by area or state using the search box above. Type as shown:
 
 <section class="lower">
 <div class="advice">
-<h2>Before flood</h2>
-<ul><li>Keep emergency supplies ready.</li><li>Follow weather warnings.</li><li>Know your evacuation route.</li></ul>
-<h2>During flood</h2>
-<ul><li>Move to higher ground if advised.</li><li>Avoid flooded roads.</li><li>Follow official instructions.</li></ul>
-<h2>After flood</h2>
-<ul><li>Return only when safe.</li><li>Use clean drinking water.</li><li>Report damage to authorities.</li></ul>
+<h2>Flood Safety Guide</h2>
+
+<details open>
+<summary><b>Before a Flood</b></summary>
+<ul>
+<li>Prepare an emergency kit with food, water, medicines and a torch.</li>
+<li>Keep important documents in waterproof bags.</li>
+<li>Monitor weather forecasts and official flood warnings.</li>
+<li>Identify safe shelters and evacuation routes beforehand.</li>
+<li>Charge phones and power banks in advance.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>During a Flood</b></summary>
+<ul>
+<li>Move to higher ground when advised by authorities.</li>
+<li>Stay away from flooded roads, rivers and electric wires.</li>
+<li>Never walk or drive through moving floodwater.</li>
+<li>Listen to official announcements and emergency updates.</li>
+<li>Keep children and vulnerable people safe.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>After a Flood</b></summary>
+<ul>
+<li>Return home only after authorities confirm it is safe.</li>
+<li>Avoid damaged buildings and fallen electrical wires.</li>
+<li>Drink boiled or properly treated water.</li>
+<li>Clean and disinfect items exposed to floodwater.</li>
+<li>Report damage and seek medical assistance if needed.</li>
+</ul>
+</details>
 </div>
+
 <div class="middle">
 <h2>Emergency checklist</h2>
 <div class="checklist">
@@ -128,36 +148,32 @@ Search for hospitals by area or state using the search box above. Type as shown:
 <label><input type="checkbox"> Power bank</label>
 <label><input type="checkbox"> Whistle</label>
 </div>
+
 <h2>Everything you need to know</h2>
 <iframe src="https://www.youtube.com/embed/Gs9IqsrYxJk" title="Assam floods" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/7IQTeelrDWA" title="Flood safety awareness" allowfullscreen></iframe>
 </div>
+
 <div class="right">
 <h2>Flood map</h2>
-<iframe class="map"
-src="https://assamfloodwatch.com/"
-title="Assam live flood map"
-loading="lazy">
-</iframe>
+<iframe class="map" src="https://assamfloodwatch.com/" title="Assam live flood map" loading="lazy"></iframe>
 <a class="map-full" href="https://assamfloodwatch.com/" target="_blank" rel="noopener">View Full Screen ↗</a>
+
 <h2>Latest News</h2>
 <div class="news">
-  <div style="position:relative;width:100%;height:500px;">
-    <iframe
-      src="https://rss.app/embed/v1/wall/ndTnImu1qeKd4LSO"
-      title="Latest Assam Flood News"
-      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-      loading="lazy">
-    </iframe>
-  </div>
-  <p>
-    If the news wall does not load,
-    <a href="https://rss.app/embed/v1/wall/ndTnImu1qeKd4LSO"
-       target="_blank">
-      Click here to open
-    </a>.
-  </p>
+<div style="position:relative;width:100%;height:500px;">
+<iframe src="https://rss.app/embed/v1/wall/ndTnImu1qeKd4LSO" title="Latest Assam Flood News" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" loading="lazy"></iframe>
+</div>
+<p>If the news wall does not load, <a href="https://rss.app/embed/v1/wall/ndTnImu1qeKd4LSO" target="_blank">Click here to open</a>.</p>
 </div>
 </div>
 </section>
+
+<section class="resources">
+<h2>Additional Resources</h2>
+<p>Explore official guidelines, disaster management information and flood preparedness resources.</p>
+<a href="https://ndma.gov.in" target="_blank" rel="noopener">Visit NDMA ↗</a>
+</section>
+
 </body>
 </html>
