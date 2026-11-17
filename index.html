@@ -6,41 +6,74 @@
 <title>TideTurn | Stay Informed. Stay Safe.</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <style>
+
+/* Basic styling for the whole page */
 *{box-sizing:border-box}
 body{margin:0;background:#E4F4F4;color:#183D68;font-family:'Varela Round',sans-serif}
+
+/* Navigation bar styling */
 nav{height:78px;background:#264F8E;display:flex;align-items:center;padding:0 20px;gap:15px}
 nav img{width:110px;height:94px;object-fit:contain;flex-shrink:0;transform:scale(1.1)}
 .brand{font-size:1.7rem;font-weight:bold;color:white;white-space:nowrap}
 .links{display:flex;justify-content:space-evenly;align-items:center;flex:1}
 .links a{color:white;text-decoration:none;font-size:1.1rem;font-weight:bold;padding:11px 24px;border-radius:9px;white-space:nowrap}
+
+/* Changes the link colour when hovered or selected */
 .links a:hover,.links a:focus,.links a.active{background:#A9DDF5;color:#183D68}
+
+/* Main banner section */
 .banner{height:350px;position:relative;background:linear-gradient(90deg,#183D6855,transparent),url('https://static.toiimg.com/thumb/msid-111557664,imgsize-1267916,width-400,resizemode-4/111557664.jpg') center/cover}
 .banner h1{position:absolute;top:45px;left:5%;color:white;font-size:2.5rem;text-shadow:1px 2px 5px #183D68}
+
+/* Button styling used for Donate and the cards */
 .btn{display:inline-block;background:#E9988E;color:#183D68;text-decoration:none;border:0;border-radius:8px;padding:10px 22px;font-weight:bold;cursor:pointer}
 .banner .btn{position:absolute;top:220px;left:5%}
 .safe{position:absolute;right:0;bottom:0;background:#E9988E;padding:12px 18px;font-weight:bold}
+
+/* Main content and card layout */
 main{padding:24px 22px 0}
 h2{font-size:20px;color:#111;margin:0 0 16px}
+
+/* Grid is used to keep the cards and About Us section side by side */
 .content{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:22px;align-items:start}
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}
+
+/* Individual card styling */
 .card{background:#7EBCCB;border-radius:13px;padding:16px 9px;text-align:center;min-height:230px}
 .icon{font-size:2.5rem;margin:2px 0 12px}
 .card h3{font-size:1rem;margin:0 0 10px}
 .card p{font-size:16px;line-height:1.4;min-height:44px;margin:0 0 14px}
+
+/* About Us section and its dropdown */
 .about{text-align:center;background:#D4EBF0;border-radius:13px;padding:14px}
 .about img{width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid white}
 details{margin-top:10px;text-align:left}
 summary{cursor:pointer;list-style:none;text-align:center;font-size:1.3rem;font-weight:bold}
 summary::-webkit-details-marker{display:none}
+
+/* Adds an arrow which changes when the dropdown is opened */
 summary:after{content:"⌄";margin-left:8px}
 details[open] summary:after{content:"⌃"}
 details p{font-size:14px;line-height:1.5}
+
+/* SVG wave design at the bottom of the page */
 .waves{height:80px;margin-top:25px;overflow:hidden}
 .waves svg{width:100%;height:100%;display:block}
-@media(max-width:850px){nav{height:auto;flex-wrap:wrap;padding:10px}nav img{width:75px}.brand{font-size:1.3rem}.links a{font-size:.9rem;padding:8px}.content{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Makes the layout fit smaller screens */
+@media(max-width:850px){
+nav{height:auto;flex-wrap:wrap;padding:10px}
+nav img{width:75px}
+.brand{font-size:1.3rem}
+.links a{font-size:.9rem;padding:8px}
+.content{grid-template-columns:1fr}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 </head>
 <body>
+
+<!-- Navigation bar with the logo and page links -->
 <nav>
 <img src="Logo.png" alt="TideTurn logo">
 <span class="brand">TideTurn</span>
@@ -50,20 +83,28 @@ details p{font-size:14px;line-height:1.5}
 <a href="safety.html">Safety</a>
 </div>
 </nav>
+
+<!-- Main banner with the donate button and slogan -->
 <header class="banner">
 <h1>Safer Communities.<br>Stronger Tomorrows.</h1>
 <a class="btn" href="https://cm.assam.gov.in/donate" target="_blank" rel="noopener noreferrer">DONATE →</a>
 <div class="safe">Be aware. Be prepared. Be safe.</div>
 </header>
+
+<!-- Main section of the homepage -->
 <main>
 <h2>What would you like to do?</h2>
 <div class="content">
+
+<!-- Four cards linking to diffrent sections of the website -->
 <section class="cards">
 <article class="card"><div class="icon">🌍</div><h3>Flood Tracker</h3><p>Explore flood information and locations.</p><a class="btn" href="https://assamfloodwatch.com">GO!</a></article>
 <article class="card"><div class="icon">📖</div><h3>Information</h3><p>Learn about floods and staying prepared.</p><a class="btn" href="information.html">GO!</a></article>
 <article class="card"><div class="icon">📝</div><h3>Quizzes</h3><p>Explore flood awareness learning resources.</p><a class="btn" href="information.html">GO!</a></article>
 <article class="card"><div class="icon">🩹</div><h3>Get Help</h3><p>Find emergency and safety information.</p><a class="btn" href="safety.html">GO!</a></article>
 </section>
+
+<!-- About Us section with an expandable description -->
 <aside class="about">
 <h2>About Us</h2>
 <img src="Creator.jpeg" alt="TideTurn creator">
@@ -71,6 +112,8 @@ details p{font-size:14px;line-height:1.5}
 </aside>
 </div>
 </main>
+
+<!-- Wave design added at the bottom of the page -->
 <div class="waves" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 45 Q180 100 360 48 T720 50 T1080 48 T1440 45 V120 H0Z" fill="#A9DDF5"/><path d="M0 72 Q220 20 440 75 T880 70 T1320 75 T1440 65 V120 H0Z" fill="#7EBCCB"/><path d="M0 95 Q250 60 500 95 T1000 90 T1440 88 V120 H0Z" fill="#264F8E"/></svg></div>
 </body>
 </html>
