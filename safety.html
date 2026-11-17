@@ -6,19 +6,33 @@
 <title>TideTurn | Safety</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <style>
+
+/* Basic styling for the whole page */
 *{box-sizing:border-box}
 html,body{margin:0;background:#E4F4F4;color:#183D68;font-family:'Varela Round',sans-serif}
+
+/* Navigation bar styling */
 nav{width:100%;min-height:78px;background:#264F8E;display:flex;align-items:center;padding:10px 20px;gap:15px}
 nav img{width:75px;height:65px;object-fit:contain;flex-shrink:0}
 .brand{font-size:26px;font-weight:bold;color:white;white-space:nowrap}
 .links{display:flex;align-items:center;justify-content:space-evenly;flex:1;gap:5px}
 .links a{color:white;text-decoration:none;font-size:16px;font-weight:bold;padding:12px 24px;border-radius:9px;white-space:nowrap}
+
+/* Changes the link colour when hovered or selected */
 .links a:hover,.links .active{background:#A9DDF5;color:#264F8E}
+
+/* Banner section with the background image */
 .banner{height:300px;background:linear-gradient(90deg,#183D68B8,#183D6830),url("https://civicdatalab.in/2022-Assam-Flood-Response/Assam_floods.JPG") center/cover;display:flex;align-items:center;padding:35px 6%}
 .banner h1{color:white;font-size:clamp(30px,5vw,52px);margin:0}
+
+/* Emergency contacts and hospital locator layout */
 .upper{display:grid;grid-template-columns:.85fr 1.5fr;gap:22px;padding:25px 4%}
+
+/* General styling for the information panels */
 .panel{background:#D4EBF0;border-radius:16px;padding:20px;box-shadow:0 3px 10px #183D6820}
 h2{text-align:center;margin:0 0 15px}
+
+/* Makes the contacts section scrollable if it gets too long */
 .contacts{max-height:400px;overflow-y:auto}
 .contact{background:white;padding:12px;border-radius:9px;margin:9px 0;display:flex;justify-content:space-between;gap:8px}
 a{color:#264F8E}
@@ -26,6 +40,8 @@ a{color:#264F8E}
 iframe{width:100%;border:0;border-radius:10px}
 .hospital iframe{height:350px}
 .note{font-size:13px;line-height:1.5}
+
+/* Lower section with three columns for advice, checklist and flood updates */
 .lower{
 display:grid;
 grid-template-columns:1fr 1.2fr 1.3fr;
@@ -33,28 +49,46 @@ gap:20px;
 padding:25px 3%;
 align-items:start;
 }
+
+/* Heading styling for the lower sections */
 .lower h2{text-align:center;font-size:28px;margin:0 0 12px;color:#183D68}
+
+/* Dropdown sections for flood safety advice */
 .advice{padding-top:0}
 .advice h2{text-align:center;margin:0 0 15px}
 .advice details{background:#D4EBF0;border-radius:10px;padding:12px;margin-bottom:12px}
 .advice summary{cursor:pointer;font-size:17px;color:#183D68}
 .advice ul{line-height:1.6;padding-left:22px;margin-bottom:5px}
+
+/* Emergency checklist styling */
 .checklist{background:#E9988E;padding:12px 25px;border-radius:22px;margin-bottom:20px}
 .checklist label{display:block;padding:9px 0;border-bottom:2px solid #183D68}
 .checklist input{accent-color:#264F8E}
+
+/* Video styling - keeps the videos in the same proportions */
 .middle iframe{width:100%;aspect-ratio:16/9;margin-bottom:12px}
+
+/* Flood map and full screen link */
 .right .map{height:260px;background:white;border:6px solid white;border-radius:30px}
 .map-full{display:block;text-align:center;background:#264F8E;color:white;padding:11px;margin:10px 0 22px;border-radius:9px;text-decoration:none;font-weight:bold}
 .map-full:hover{background:#A9DDF5;color:#264F8E}
+
+/* Latest news section */
 .news{background:#A4B894;border:6px solid white;border-radius:8px;padding:8px}
 .news iframe{height:190px}
+
+/* Additional resources section at the bottom */
 .resources{background:#D4EBF0;padding:22px;text-align:center;border-radius:15px;margin:20px 3%}
 .resources a{display:inline-block;background:#264F8E;color:white;padding:12px 25px;border-radius:9px;text-decoration:none;font-weight:bold}
 .resources a:hover{background:#A9DDF5;color:#264F8E}
+
+/* Changes the lower section into one column on smaller screens */
 @media(max-width:850px){.lower{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
+<!-- Navigation bar with the logo and page links -->
 <nav>
 <img src="Logo.png" alt="TideTurn logo">
 <span class="brand">TideTurn</span>
@@ -63,9 +97,13 @@ align-items:start;
 </div>
 </nav>
 
+<!-- Main banner -->
 <section class="banner"><h1>Need Help?<br>You’re not alone!</h1></section>
 
+<!-- Upper section: emergency contacts and hospital locator -->
 <section class="upper">
+
+<!-- Emergency phone numbers -->
 <div class="panel">
 <h2>Emergency Numbers</h2>
 <div class="contacts">
@@ -81,6 +119,7 @@ align-items:start;
 <p class="note">Tap a number to call from a phone. Use emergency numbers only when help is needed.</p>
 </div>
 
+<!-- Hospital search using Google Maps -->
 <div class="panel hospital">
 <h2>Hospital Locator</h2>
 <form action="https://www.google.com/maps/search/" method="get" target="_blank">
@@ -93,7 +132,10 @@ align-items:start;
 </div>
 </section>
 
+<!-- Lower section: safety advice, emergency checklist, videos and flood updates -->
 <section class="lower">
+
+<!-- Flood safety guide with expandable dropdowns -->
 <div class="advice">
 <h2>Flood Safety Guide</h2>
 <details open>
@@ -128,6 +170,7 @@ align-items:start;
 </details>
 </div>
 
+<!-- Emergency checklist with tick boxes -->
 <div class="middle">
 <h2>Emergency checklist</h2>
 <div class="checklist">
@@ -141,17 +184,20 @@ align-items:start;
 <label><input type="checkbox"> Whistle</label>
 </div>
 
+<!-- Flood awareness videos -->
 <h2>Everything you need to know</h2>
 <iframe src="https://www.youtube.com/embed/Gs9IqsrYxJk" title="Assam floods" allowfullscreen></iframe>
 <iframe src="https://www.youtube.com/embed/7IQTeelrDWA" title="Flood safety awareness" allowfullscreen></iframe>
 <iframe src="https://www.youtube.com/embed/o4enqHGluLI" title="Flood awareness video" allowfullscreen></iframe>
 </div>
 
+<!-- Flood map and latest news -->
 <div class="right">
 <h2>Flood map</h2>
 <iframe class="map" src="https://assamfloodwatch.com/" title="Assam live flood map" loading="lazy"></iframe>
 <a class="map-full" href="https://assamfloodwatch.com/" target="_blank" rel="noopener">View Full Screen ↗</a>
 
+<!-- Latest Assam flood news wall -->
 <h2>Latest News</h2>
 <div class="news">
 <div style="position:relative;width:100%;height:500px;">
@@ -162,6 +208,7 @@ align-items:start;
 </div>
 </section>
 
+<!-- Additional official flood safety resources -->
 <section class="resources">
 <h2>Additional Resources</h2>
 <p>Explore official guidelines, disaster management information and flood preparedness resources.</p>
