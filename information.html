@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +6,21 @@
 <title>TideTurn | Information</title>
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <style>
+
+/* Basic styling for the whole page */
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:#E4F4F4}
 body{font-family:'Varela Round',sans-serif}
+
+/* Navigation bar styling */
 nav{width:100%;min-height:78px;background:#264F8E;display:flex;align-items:center;padding:10px 20px;gap:15px}
 nav img{width:75px;height:65px;object-fit:contain;flex-shrink:0}
 .brand{font-size:26px;font-weight:bold;color:white;white-space:nowrap}
 .links{display:flex;align-items:center;justify-content:space-evenly;flex:1;gap:5px}
-.links a{color:white;text-decoration:none;font-size:16px;font-weight:bold;padding:12px 24px;border-radius:9px;white-space:nowrap}
+.links a{color:white;text-decoration:none;font-size:16px;font-weight:bold;padding:12px 24px;border-radius:9px}
 .links a:hover,.links .active{background:#A9DDF5;color:#264F8E}
 
+/* Main layout - grid keeps the diffrent sections organised */
 .info-layout{
 display:grid;
 grid-template-columns:380px minmax(220px,1fr) minmax(280px,1fr);
@@ -25,6 +29,7 @@ align-items:start;
 padding:20px;
 }
 
+/* Quiz box styling */
 .quiz{
 width:100%;
 padding:22px;
@@ -42,6 +47,7 @@ box-shadow:0 3px 10px #183D6820;
 .quiz button:disabled{opacity:.5;cursor:not-allowed}
 #result{font-weight:bold;line-height:1.6}
 
+/* Information section about the causes of flooding */
 .info-section{
 margin-top:10px;
 margin-right:20px;
@@ -57,6 +63,7 @@ padding:20px;
 text-align:left;
 }
 
+/* Pie chart and rescue image */
 .pie-area{text-align:center;margin-top:10px}
 .pie-area img{width:100%;height:220px;object-fit:contain}
 
@@ -64,6 +71,7 @@ text-align:left;
 .rescue-area img{width:100%;height:190px;object-fit:cover;border-radius:16px;display:block}
 .rescue-area p{font-weight:bold;margin:6px 0 0;color:#183D68}
 
+/* Section about the impact of floods */
 .section-two{
 margin-top:20px;
 text-align:left;
@@ -77,6 +85,7 @@ border-radius:15px;
 padding:20px;
 }
 
+/* Images are arranged in a grid below the rescue image */
 .lower-images{
 display:grid;
 grid-template-columns:1fr;
@@ -85,6 +94,7 @@ align-items:start;
 margin-top:10px;
 }
 
+/* Styling for the image cards */
 .image-card{
 background:white;
 padding:10px;
@@ -102,6 +112,7 @@ display:block;
 }
 .image-card p{font-weight:bold;margin:6px 0 2px}
 
+/* Graph styling */
 .graph{
 margin-top:20px;
 }
@@ -111,10 +122,12 @@ object-fit:contain;
 background:white;
 }
 
+/* Adjusts the layout for tablets and smaller screens */
 @media(max-width:950px){
 .info-layout{grid-template-columns:1fr 1fr}
 }
 
+/* Changes the layout for mobile screens so sections fit properly */
 @media(max-width:600px){
 nav{gap:5px;padding:8px}
 nav img{width:45px;height:45px}
@@ -126,6 +139,8 @@ nav img{width:45px;height:45px}
 </style>
 </head>
 <body>
+
+<!-- Navigation bar with links to the three pages -->
 <nav>
 <img src="Logo.png" alt="TideTurn logo">
 <span class="brand">TideTurn</span>
@@ -135,8 +150,11 @@ nav img{width:45px;height:45px}
 <a href="safety.html">Safety</a>
 </div>
 </nav>
+
+<!-- Main information layout -->
 <div class="info-layout">
 
+<!-- Left section: flood awareness quiz and impact of floods -->
 <div>
 <div class="quiz">
 <h2>🌊 Flood Awareness Quiz</h2>
@@ -154,20 +172,27 @@ nav img{width:45px;height:45px}
 <button type="button" onclick="restartQuiz()">Try Again</button>
 </div>
 </div>
+
+<!-- Information about the effects of floods -->
 <div class="section-two">
 <h2>Impact of Floods</h2>
 <div class="research">Floods can displace families, destroy homes, damage agricultural land and interrupt access to schools, healthcare and clean drinking water. Their effects often continue long after the water recedes, as communities struggle to rebuild their homes and livelihoods. The scale of the impact was evident in 2024, when approximately 42.96 lakh people across 7,794 villages were affected by floods in Assam. Around 49,580 hectares of crop area were also affected, threatening agricultural livelihoods. The situation remained severe in 2026, when the flood-related death toll reached 105 people by 18 August, according to figures from the Assam State Disaster Management Authority (ASDMA). These statistics highlight the devastating human and economic consequences of flooding and the importance of rescue operations, emergency relief and long-term recovery support.</div>
 </div>
 </div>
 
+<!-- Middle section: flood statistics and related images -->
 <div>
 <div class="pie-area">
 <img src="https://www.researchgate.net/publication/348577571/figure/fig5/AS:981574921224226@1611037106471/Year-wise-loss-of-property-Rs-in-Crore-in-Assam-due-to-flood-and-erosion-Source.png" alt="Value of Property pie chart">
 </div>
+
+<!-- Image showing rescue efforts -->
 <div class="rescue-area">
 <img src="https://ichef.bbci.co.uk/news/1536/cpsprodpb/14572/production/_125541338_floodassam.jpg.webp" alt="Rescue efforts during Assam floods">
 <p>Rescue Efforts</p>
 </div>
+
+<!-- Other images related to flooding and damage -->
 <div class="lower-images">
 <div class="image-card">
 <img src="https://c.ndtvimg.com/2026-07/6r1mrotg_assam-floods_625x300_24_July_26.jpeg?im=FaceCrop,algorithm=dnn,width=773,height=435" alt="Floods in Assam">
@@ -180,11 +205,14 @@ nav img{width:45px;height:45px}
 </div>
 </div>
 
+<!-- Right section: reasons for flooding and graph -->
 <div>
 <div class="info-section">
 <h2>Why Does Assam Experience Heavy Flooding?</h2>
 <div class="research">Assam receives intense rainfall during the South-West Monsoon, particularly between May and September. According to the Assam Water Resources Department, approximately 85% of the Brahmaputra basin's annual rainfall occurs during these months, causing rivers and their tributaries to rise. The Brahmaputra and Barak river systems receive water from numerous tributaries, including rivers flowing down from the Himalayas. When heavy rainfall occurs across several river catchments at once, these tributaries can swell together, increasing water levels and the risk of flooding. In July 2024, the Brahmaputra at Neamatighat reached a new recorded highest flood level of 87.47 metres, exceeding its previous record of 87.37 metres from 1991. These factors make Assam particularly vulnerable to recurring floods during the monsoon season.</div>
 </div>
+
+<!-- Graph showing the number of families affected -->
 <div class="graph image-card">
 <img src="https://www.researchgate.net/publication/348577571/figure/fig4/AS:981574921232411@1611037106410/Year-wise-family-affected-in-Assam-due-flood-and-Riverbank-erosion-Source-Water.png" alt="Year-wise families affected by floods and riverbank erosion in Assam">
 <p>Families Affected by Floods</p>
@@ -193,7 +221,10 @@ nav img{width:45px;height:45px}
 
 </div>
 
+<!-- JavaScript code for the interactive quiz -->
 <script>
+
+/* Questions, answer options and correct answer positions */
 const questions = [
 {
 q:"What should you do when a flood warning is issued?",
@@ -222,9 +253,11 @@ answer:2
 }
 ];
 
+/* Keeps track of the current question and score */
 let current=0;
 let score=0;
 
+/* Displays the question and its answer options */
 function showQuestion(){
 document.getElementById("progress").textContent=
 "QUESTION "+(current+1)+" OF "+questions.length;
@@ -232,6 +265,7 @@ document.getElementById("progress").textContent=
 document.getElementById("question").textContent=
 questions[current].q;
 
+/* Adds the answer options to the page */
 document.getElementById("options").innerHTML=
 questions[current].options.map((option,i)=>
 '<label class="option"><input type="radio" name="answer" value="'+i+'"> '+option+'</label>'
@@ -242,6 +276,7 @@ document.getElementById("next").disabled=true;
 document.getElementById("next").textContent=
 current===questions.length-1?"View Results":"Submit Answer";
 
+/* Enables the button once an option has been selected */
 document.querySelectorAll('input[name="answer"]').forEach(input=>{
 input.addEventListener("change",()=>{
 document.getElementById("next").disabled=false;
@@ -249,6 +284,7 @@ document.getElementById("next").disabled=false;
 });
 }
 
+/* Checks the selected answer and moves to the next question */
 document.getElementById("next").addEventListener("click",function(){
 const selected=document.querySelector('input[name="answer"]:checked');
 if(!selected)return;
@@ -261,6 +297,8 @@ current++;
 if(current<questions.length){
 showQuestion();
 }else{
+
+/* Hides the questions and displays the final score */
 document.getElementById("questionArea").hidden=true;
 document.getElementById("resultArea").hidden=false;
 document.getElementById("result").textContent=
@@ -268,6 +306,7 @@ document.getElementById("result").textContent=
 }
 });
 
+/* Resets the quiz so it can be attempted again */
 function restartQuiz(){
 current=0;
 score=0;
@@ -276,6 +315,7 @@ document.getElementById("resultArea").hidden=true;
 showQuestion();
 }
 
+/* Loads the first question when the page opens */
 showQuestion();
 </script>
 </body>
