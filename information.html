@@ -225,34 +225,36 @@ nav img{width:45px;height:45px}
 <script>
 
 /* Questions, answer options and correct answer positions */
-const questions = [
-{
-q:"What should you do when a flood warning is issued?",
-options:["Ignore it","Follow official safety instructions","Go near the river"],
-answer:1
-},
-{
-q:"What should you do if floodwater blocks a road?",
-options:["Walk through it","Drive through it","Find a safer route"],
-answer:2
-},
-{
-q:"Which item belongs in an emergency kit?",
-options:["Drinking water","Glass decorations","Unnecessary toys"],
-answer:0
-},
-{
-q:"Where should you get reliable flood updates?",
-options:["Online rumours","Official weather and emergency alerts","Unverified messages"],
-answer:1
-},
-{
-q:"What should you do if authorities order an evacuation?",
-options:["Stay and watch","Wait for water to enter","Follow evacuation instructions promptly"],
-answer:2
-}
-];
 
+const questions = [{q:"Why is Assam particularly prone to flooding?",
+options:["Low rainfall throughout the year",
+"Heavy monsoon rainfall and many river tributaries",
+"Frequent snowfall across the state"],
+answer:1},
+{q:"During which months does approximately 85% of the Brahmaputra basin's annual rainfall occur?",
+options:[
+"January to March",
+"May to September",
+"October to December"
+],
+answer:1
+},
+{
+q:"Approximately how many people across Assam were affected by floods in 2024?",
+options:[
+"4.296 lakh",
+"42.96 lakh",
+"429.6 lakh"],
+answer:1},
+{q:"Where should you get reliable flood updates?",
+options:["Online rumours",
+"Official weather and emergency alerts",
+"Unverified messages"],
+answer:1},
+{q:"What should you do if authorities order an evacuation?",
+options:["Stay and watch","Wait for water to enter",
+"Follow evacuation instructions promptly"],
+answer:2}];
 /* Keeps track of the current question and score */
 let current=0;
 let score=0;
